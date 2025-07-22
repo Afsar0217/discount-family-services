@@ -21,40 +21,129 @@ const servicesData = {
     services: {
       'హాస్పిటల్స్': [
         { 
-          name: 'శ్రీ సాయి హాస్పిటల్', 
+          name: "Lullu Children's Hospital-లులు పిల్లల హాస్పిటల్", 
           vendor: 'Dr. Rao Hospital',
-          location: 'Main Road, Karimnagar',
+          location: 'అమ్మ హాస్పిటల్ పక్కన , సిరిసిల్ల',
           phone: '9876543210',
           discounts: [
-            '10% on general consultation',
-            'Free health checkup for seniors',
-            'Emergency services 24/7'
+            'OP🩺 - 99-/Only',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'LAB tests🔬(excluding outsourced) - 30%'
           ]
-        }
+        },
+        { 
+          name: "Aditya Neuro & Ortho-ఆదిత్య న్యూరో & ఆర్థో", 
+          vendor: 'Dr. Venkatesh Hospital',
+          location: 'Sircilla',
+          phone: '9876543210',
+          discounts: [
+            'OP🩺 - 99-/Only',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'Pharmacy - 10%'
+          ]
+        },
+        { 
+          name: "Life Hospital-లైఫ్ హాస్పిటల్", 
+          vendor: 'Dr. Latha Hospital',
+          location: 'Opposite Municipal Office, Sircilla',
+          phone: '9876543210',
+          discounts: [
+            'OP🩺 - 99-/Only',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'LAB tests🔬(excluding outsourced) - 30%',
+            'Pharmacy - 10%'
+          ]
+        },
+        { 
+          name: "Amrutha Hospital-అమృత పిల్లల హాస్పిటల్", 
+          vendor: 'Dr. Akhila Hospital',
+          location: 'Sircilla',
+          phone: '7799663223',
+          discounts: [
+            'OP🩺 - 99-/Only',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'LAB tests🔬(excluding outsourced) - 30%'
+          ]
+        },
+        { 
+          name: "Chandana Chest Hospital-చందన చెస్ట్ హాస్పిటల్", 
+          vendor: 'Dr. Chandana Hospital',
+          location: 'Sircilla',
+          phone: '7799663223',
+          discounts: [
+            'OP🩺 - 99-/Only',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'LAB tests🔬(excluding outsourced) - 30%'
+          ]
+        },
+        { 
+          name: "Sri Siddi Vinayaka E.N.T Hospital-శ్రీ సిద్ది వినాయక E.N.T హాస్పిటల్", 
+          vendor: 'Dr. Sai Shankar Hospital',
+          location: '3-2-84/1, Near Old Bus Stand,Sircilla, Rajanna Sircilla, 505301',
+          phone: '7799663223',
+          discounts: [
+            'OP🩺 - 100 OFF%',
+            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
+            'LAB tests🔬(excluding outsourced) - 30%'
+          ]
+        },
+        { 
+          name: "Vihaana Multispeciality Dental Care-విహానా మల్టీస్పెషాలిటీ డెంటల్ కేర్", 
+          vendor: 'Dr. Vikram Hospital',
+          location: 'Karimnagar - Sircilla Rd, near OLD BUS STAND, Shanti Nagar, Sircilla, Telangana 505301',
+          phone: '7799663223',
+          discounts: [
+            'OP🩺 - 99-/Only',
+            'Demtal Care - 25% to 30%',
+            'Laser Flop Surgery(excluding outsourced) - 40%'
+          ]
+        },
+        { 
+          name: "Vinayaka Dental Care-వినాయక డెంటల్ కేర్ -women docter", 
+          vendor: 'Dr. Akhila Hospital',
+          location: 'opposite Collage Ground, in manasa hospital, Sircilla, Telangana 505301',
+          phone: '7799663223',
+          discounts: [
+            'OP🩺 - FREE',
+            'Laser Flop Surgery(excluding outsourced) - 40%',
+            'LAB tests🔬(excluding outsourced) - 30%'
+          ]
+        },
+        { 
+          name: "ShivaSai Optics-శివసాయి కళ్ళ హాస్పిటల్", 
+          vendor: 'Dr. Akhila Hospital',
+          location: 'opposite Old Bus Stand, Sircilla, Telangana 505301',
+          phone: '7799663223',
+          discounts: [
+            'Glasses - start Just -649',
+            'eye check up - FREE',
+            'Branded Glasses - 25% to 30%'
+          ]
+        },
       ],
       'మెడికల్': [
         { 
-          name: 'రాజు మెడికల్స్', 
-          vendor: 'Pharmacy Raju',
-          location: 'Market Street, Karimnagar',
+          name: 'Sri Siddi Vinayaka Medical store-శ్రీ సిద్ది వినాయక మెడికల్ స్టోర్', 
+          vendor: 'Pharmacy Venkat',
+          location: 'Near Old Bus Stand,Sircilla, Rajanna Sircilla, 505301',
           phone: '9876543211',
           discounts: [
-            '15% on prescription medicines',
-            'Free home delivery above ₹500',
-            'Health supplements discount'
+            'Ethical Medicine - 23%',
+            'Personal Care & Hygiene - 10 to 15%',
+            'Medical Devices & Accessories - 20 to 50%'
           ]
         }
       ],
       'లేబొరేటరీ': [
         { 
-          name: 'హైటెక్ ల్యాబ్', 
+          name: 'Laboratory', 
           vendor: 'Sudha Diagnostics',
           location: 'Hospital Road, Karimnagar',
           phone: '9876543212',
           discounts: [
             '20% on blood tests',
-            'Free sample collection',
-            'Digital reports within 2 hours'
+            'Special Tests - 25%',
+            'Packages - 40%'
           ]
         }
       ]
