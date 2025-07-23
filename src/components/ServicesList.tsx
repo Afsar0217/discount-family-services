@@ -684,20 +684,6 @@ const servicesData = {
       }
     ]
   },
-  WineAndDine: {
-    services: [
-      { 
-        name: '**** Wines', 
-        vendor: 'Wine Shop',
-        location: 'Main Street',
-        phone: '7799663223',
-        discounts: [
-          '20% off on wine bottles',
-          'Free dessert with every meal'
-        ]
-      }
-    ]
-  },
   Tailor: {
     services: [
       { 
@@ -869,9 +855,9 @@ const handleBooking = async (serviceName: string, vendorName: string) => {
               <CardTitle className="text-xl font-bold text-center">
                 🏥 Healthcare Subcategories
               </CardTitle>
-              <p className="text-center text-sm text-gray-600">
+              <div className="text-center text-sm text-gray-600">
                 Booking for: <Badge variant="secondary">{selectedMember}</Badge>
-              </p>
+              </div>
             </CardHeader>
             <CardContent className="space-y-3">
               {'subcategories' in categoryData && categoryData.subcategories?.map((sub) => (
@@ -912,9 +898,9 @@ const handleBooking = async (serviceName: string, vendorName: string) => {
             <CardTitle className="text-xl font-bold text-center">
               {subcategory ? `${subcategory} Services` : `${category} Services`}
             </CardTitle>
-            <p className="text-center text-sm text-gray-600">
+            <div className="text-center text-sm text-gray-600">
               Booking for: <Badge variant="secondary">{selectedMember}</Badge>
-            </p>
+            </div>
           </CardHeader>
           <CardContent className="space-y-3">
             {services.map((service: any, index: number) => {

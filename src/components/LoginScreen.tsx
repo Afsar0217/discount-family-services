@@ -5,18 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from '@/components/ui/use-toast';
+import { validateLogin } from '@/services/googleSheetsService';
 
 interface LoginScreenProps {
   onLoginSuccess: (familyData: any) => void;
   onBack: () => void;
 }
 
-const familyData = {
-  '8247556370': { password: 'vengala', members: ['అనిల్', 'లావణ్య', 'సంజీవ్', 'స్వర్ణమాల్య'] },
-  '8688208088': { password: 'anil', members: ['అనిల్', 'అంజలి'] },
-  '7799663223': { password: 'anjali', members: ['అంజలి', 'పప్పీ'] },
-  '9618617232': { password: 'lolapu', members: ['రంజిత్', 'హరీష్'] }
-};
+
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, onBack }) => {
   const [phone, setPhone] = useState('');
@@ -26,13 +22,29 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, onBack }) => 
   const handleLogin = async () => {
     setLoading(true);
     
-    const family = familyData[phone as keyof typeof familyData];
-    
-    if (family && family.password === password) {
-      toast({ title: 'Login successful!', description: 'Welcome to your VIP family dashboard' });
-      onLoginSuccess({ phone, members: family.members });
-    } else {
-      toast({ title: 'Login failed', description: 'Invalid phone number or password', variant: 'destructive' });
+    try {
+      const result = await validateLogin(phone, password);
+      
+      if (result.success && result.familyData) {
+        toast({ 
+          title: 'Login successful!', 
+          description: 'Welcome to your VIP family dashboard' 
+        });
+        onLoginSuccess(result.familyData);
+      } else {
+        toast({ 
+          title: 'Login failed', 
+          description: result.error || 'Invalid phone number or password', 
+          variant: 'destructive' 
+        });
+      }
+    } catch (error) {
+      toast({ 
+        title: 'Login error', 
+        description: 'Unable to connect to the server. Please check your internet connection and try again.', 
+        variant: 'destructive' 
+      });
+      console.error('Login error:', error);
     }
     
     setLoading(false);
