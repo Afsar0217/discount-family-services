@@ -1,4 +1,6 @@
 import { toast } from '@/components/ui/use-toast';
+import { debugTwilioCredentials } from '@/utils/smsDebug';
+import { testTwilioAuth } from '@/utils/testTwilioAuth';
 
 // Extend Window interface to include lastSMSSid
 declare global {
@@ -15,6 +17,9 @@ const TWILIO_MESSAGING_SERVICE_SID = import.meta.env.VITE_TWILIO_MESSAGING_SERVI
 
 // SMS message format (minimal for trial accounts, standard for paid accounts)
 const SMS_MESSAGE_FORMAT = (import.meta.env.VITE_SMS_MESSAGE_FORMAT as 'minimal' | 'standard' | 'detailed') || 'minimal';
+
+// SMS enabled flag
+const SMS_ENABLED = import.meta.env.VITE_SMS_ENABLED !== 'false';
 
 // Central phone number to receive all booking notifications
 const CENTRAL_NOTIFICATION_PHONE = import.meta.env.VITE_CENTRAL_NOTIFICATION_PHONE;
@@ -107,7 +112,51 @@ const NOTIFICATION_PHONES = (import.meta.env.VITE_NOTIFICATION_PHONES as string)
 
 export const sendSMSToVendor = async (bookingData: BookingData): Promise<boolean> => {
   try {
-    // ...existing checks...
+    // Debug: Log detailed SMS configuration
+    debugTwilioCredentials();
+    
+    // Test authentication before proceeding
+    const authTest = await testTwilioAuth();
+    if (!authTest) {
+      toast({
+        title: "Authentication Failed",
+        description: "Invalid Twilio credentials. Please check your Account SID and Auth Token.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    // Check if SMS is enabled
+    if (!SMS_ENABLED) {
+      console.log('SMS is disabled in environment variables');
+      toast({
+        title: "SMS Disabled",
+        description: "SMS notifications are disabled. Booking recorded locally.",
+        variant: "default",
+      });
+      return true; // Return true to indicate booking was processed, just without SMS
+    }
+
+    // Check if SMS is configured
+    if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN) {
+      console.warn('SMS service not configured. Missing Twilio credentials.');
+      toast({
+        title: "SMS Not Configured",
+        description: "SMS notifications are not set up. Please contact support.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    if (!TWILIO_MESSAGING_SERVICE_SID && !TWILIO_PHONE_NUMBER) {
+      console.warn('SMS service not configured. Missing phone number or messaging service.');
+      toast({
+        title: "SMS Not Configured",
+        description: "No phone number or messaging service configured.",
+        variant: "destructive",
+      });
+      return false;
+    }
 
     if (!NOTIFICATION_PHONES || NOTIFICATION_PHONES.length === 0) {
       console.error('Notification phone numbers not configured');
@@ -138,7 +187,19 @@ export const sendSMSToVendor = async (bookingData: BookingData): Promise<boolean
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(`Twilio API Error: ${errorData.message || response.statusText}`);
+        console.error('Twilio API Error Details:', {
+          status: response.status,
+          statusText: response.statusText,
+          errorData,
+          accountSid: TWILIO_ACCOUNT_SID?.substring(0, 8) + '...',
+          hasValidAuth: !!(TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN)
+        });
+        
+        if (response.status === 401) {
+          throw new Error(`Authentication failed. Please check your Twilio Account SID and Auth Token. Error: ${errorData.message || 'Invalid credentials'}`);
+        }
+        
+        throw new Error(`Twilio API Error (${response.status}): ${errorData.message || response.statusText}`);
       }
 
       const smsResponse = await response.json();
@@ -161,71 +222,3 @@ export const sendSMSToVendor = async (bookingData: BookingData): Promise<boolean
   }
 };
 
-// ...existing code...
-
-// Test function to validate SMS configuration
-export const testSMSConfiguration = (): boolean => {
-  const isConfigured = !!(TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN && TWILIO_PHONE_NUMBER);
-  
-  if (!isConfigured) {
-    console.warn('SMS service not configured. Please set the following environment variables:');
-    console.warn('- VITE_TWILIO_ACCOUNT_SID');
-    console.warn('- VITE_TWILIO_AUTH_TOKEN');
-    console.warn('- VITE_TWILIO_PHONE_NUMBER');
-    console.warn('- VITE_VENDOR_[VENDOR_NAME]_PHONE for each vendor');
-  }
-  
-  return isConfigured;
-};
-
-// Function to check SMS delivery status
-export const checkSMSStatus = async (messageSid: string): Promise<Record<string, unknown> | null> => {
-  try {
-    const response = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages/${messageSid}.json`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Basic ${btoa(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`)}`,
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch message status: ${response.statusText}`);
-    }
-
-    const messageData = await response.json();
-    console.log('SMS Status Details:', {
-      sid: messageData.sid,
-      status: messageData.status,
-      errorCode: messageData.error_code,
-      errorMessage: messageData.error_message,
-      to: messageData.to,
-      from: messageData.from,
-      dateCreated: messageData.date_created,
-      dateSent: messageData.date_sent,
-      dateUpdated: messageData.date_updated,
-      price: messageData.price,
-      priceUnit: messageData.price_unit
-    });
-
-    return messageData;
-  } catch (error) {
-    console.error('Error checking SMS status:', error);
-    return null;
-  }
-};
-
-// Enhanced SMS sending with status tracking
-export const sendSMSWithTracking = async (bookingData: BookingData): Promise<boolean> => {
-  const success = await sendSMSToVendor(bookingData);
-  
-  if (success) {
-    // Wait a bit then check status
-    setTimeout(async () => {
-      // You would need to store the message SID from the previous call
-      // This is just for demonstration
-      console.log('You can check SMS status using the SID from the previous log');
-    }, 5000);
-  }
-  
-  return success;
-};
