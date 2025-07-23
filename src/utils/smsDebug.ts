@@ -1,3 +1,10 @@
+// Extend Window interface to include debugTwilioCredentials
+declare global {
+  interface Window {
+    debugTwilioCredentials?: typeof debugTwilioCredentials;
+  }
+}
+
 // SMS Debug Utility
 export const debugTwilioCredentials = () => {
   const TWILIO_ACCOUNT_SID = import.meta.env.VITE_TWILIO_ACCOUNT_SID;
@@ -30,5 +37,5 @@ export const debugTwilioCredentials = () => {
 
 // Call this function to debug
 if (typeof window !== 'undefined') {
-  (window as any).debugTwilioCredentials = debugTwilioCredentials;
+  window.debugTwilioCredentials = debugTwilioCredentials;
 }
