@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/components/ui/use-toast';
 import { sendSMSToVendor } from '@/services/smsService';
+import { API_ENDPOINTS } from '@/config/api';
 
 interface ServicesListProps {
   category: string;
@@ -807,7 +808,7 @@ const handleBooking = async (serviceName: string, vendorName: string) => {
     // Send SMS to vendor
     const smsSuccess = await sendSMSToVendor(bookingData);
 
-    await fetch('http://localhost:4000/api/bookings', {
+    await fetch(API_ENDPOINTS.BOOKINGS, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)

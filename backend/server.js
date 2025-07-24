@@ -52,12 +52,18 @@ app.post('/api/bookings', async (req, res) => {
   }
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // API endpoint to get all bookings
 app.get('/api/bookings', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM bookings ORDER BY id DESC');
     res.json(result.rows);
   } catch (err) {
+    console.error('Get bookings error:', err);
     res.status(500).json({ error: 'Database error' });
   }
 });

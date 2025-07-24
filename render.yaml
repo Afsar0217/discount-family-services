@@ -1,0 +1,42 @@
+services:
+  # Backend API Service
+  - type: web
+    name: discount-family-services-api
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+
+  # Frontend Static Site  
+  - type: web
+    name: discount-family-services-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: discount-family-services-api
+          property: host
+      - key: VITE_TWILIO_ACCOUNT_SID
+        sync: false
+      - key: VITE_TWILIO_AUTH_TOKEN
+        sync: false
+      - key: VITE_TWILIO_PHONE_NUMBER
+        sync: false
+      - key: VITE_TWILIO_MESSAGING_SERVICE_SID
+        sync: false
+      - key: VITE_SMS_MESSAGE_FORMAT
+        value: minimal
+      - key: VITE_SMS_ENABLED
+        value: true
+      - key: VITE_NOTIFICATION_PHONES
+        sync: false

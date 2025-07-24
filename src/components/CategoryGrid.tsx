@@ -17,7 +17,6 @@ const categories = [
   { name: 'Travels', displayName: 'Travels', icon: '✈️', color: 'from-teal-500 to-cyan-500' },
   { name: 'Construction', displayName: 'Construction', icon: '🏗️', color: 'from-orange-500 to-yellow-500' },
   { name: 'Bar', displayName: 'Bar', icon: '🍺', color: 'from-purple-500 to-violet-500' },
-  { name: 'WineAndDine', displayName: 'Wine & Dine', icon: '🍷', color: 'from-red-600 to-pink-600' },
   { name: 'Laundry', displayName: 'Laundry', icon: '👕', color: 'from-blue-500 to-cyan-500'},
   { name: 'Tailor', displayName: 'Tailor', icon: '👔', color: 'from-pink-500 to-fuchsia-500' },
   { name: 'Events', displayName: 'Events', icon: '🎉', color: 'from-indigo-500 to-purple-500' },
