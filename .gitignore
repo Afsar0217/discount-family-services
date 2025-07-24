@@ -23,6 +23,9 @@ backend/.env
 *.sqlite
 *.sqlite3
 
+# Credentials file (DO NOT COMMIT)
+CREDENTIALS.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

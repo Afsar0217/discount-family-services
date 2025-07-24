@@ -6,8 +6,8 @@
 - [ ] Code pushed to GitHub repository
 
 ## Environment Variables Ready
-- [ ] NeonDB connection string: `postgresql://neondb_owner:npg_WPZUFSIVR45O@ep-wild-smoke-ad93py63-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`
-- [ ] Twilio credentials ready
+- [ ] NeonDB connection string (from backend/.env file)
+- [ ] Twilio credentials ready (from .env file)
 - [ ] Phone numbers configured
 
 ## Deployment Status
