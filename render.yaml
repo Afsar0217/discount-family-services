@@ -3,7 +3,6 @@ services:
   - type: web
     name: discount-family-services-api
     env: node
-    plan: free
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     healthCheckPath: /health
@@ -17,7 +16,6 @@ services:
   - type: web
     name: discount-family-services-frontend
     env: static
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
