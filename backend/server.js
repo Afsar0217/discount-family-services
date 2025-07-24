@@ -1,24 +1,27 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const sqlite3 = require('sqlite3').verbose();
+const { Pool } = require('pg');
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// SQLite DB setup
-const db = new sqlite3.Database('./bookings.db', (err) => {
-  if (err) console.error('DB Error:', err);
-  else console.log('Connected to SQLite DB');
+// PostgreSQL DB setup
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 // Create bookings table if not exists
-db.run(`
+const createTableQuery = `
   CREATE TABLE IF NOT EXISTS bookings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     bookedBy TEXT,
     bookedFor TEXT,
     phone TEXT,
@@ -28,31 +31,35 @@ db.run(`
     subcategory TEXT,
     timestamp TEXT
   )
-`);
+`;
+pool.query(createTableQuery)
+  .then(() => console.log('Connected to PostgreSQL and ensured bookings table exists'))
+  .catch((err) => console.error('DB Error:', err));
 
 // API endpoint to save booking
-app.post('/api/bookings', (req, res) => {
+app.post('/api/bookings', async (req, res) => {
   const { bookedBy, bookedFor, phone, service, vendor, category, subcategory, timestamp } = req.body;
-  db.run(
-    `INSERT INTO bookings (bookedBy, bookedFor, phone, service, vendor, category, subcategory, timestamp)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-    [bookedBy, bookedFor, phone, service, vendor, category, subcategory, timestamp],
-    function (err) {
-      if (err) {
-        console.error('Insert Error:', err);
-        return res.status(500).json({ error: 'Database error' });
-      }
-      res.json({ success: true, id: this.lastID });
-    }
-  );
+  try {
+    const result = await pool.query(
+      `INSERT INTO bookings (bookedBy, bookedFor, phone, service, vendor, category, subcategory, timestamp)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id`,
+      [bookedBy, bookedFor, phone, service, vendor, category, subcategory, timestamp]
+    );
+    res.json({ success: true, id: result.rows[0].id });
+  } catch (err) {
+    console.error('Insert Error:', err);
+    res.status(500).json({ error: 'Database error' });
+  }
 });
 
-// API endpoint to get all bookings (optional)
-app.get('/api/bookings', (req, res) => {
-  db.all('SELECT * FROM bookings ORDER BY id DESC', [], (err, rows) => {
-    if (err) return res.status(500).json({ error: 'Database error' });
-    res.json(rows);
-  });
+// API endpoint to get all bookings
+app.get('/api/bookings', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM bookings ORDER BY id DESC');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Database error' });
+  }
 });
 
 app.listen(PORT, () => {
