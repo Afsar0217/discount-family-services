@@ -59,12 +59,18 @@ app.get('/health', (req, res) => {
 
 // API endpoint to get all bookings
 app.get('/api/bookings', async (req, res) => {
+  console.log('GET /api/bookings - Request received');
   try {
+    console.log('Attempting to query database...');
     const result = await pool.query('SELECT * FROM bookings ORDER BY id DESC');
+    console.log('Query successful, rows:', result.rows.length);
     res.json(result.rows);
   } catch (err) {
-    console.error('Get bookings error:', err);
-    res.status(500).json({ error: 'Database error' });
+    console.error('Get bookings error - Full details:', err);
+    console.error('Error message:', err.message);
+    console.error('Error code:', err.code);
+    console.error('Error stack:', err.stack);
+    res.status(500).json({ error: 'Database error', details: err.message });
   }
 });
 
