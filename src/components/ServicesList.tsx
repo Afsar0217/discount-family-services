@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { toast } from '@/components/ui/use-toast';
 import { sendSMSToVendor } from '@/services/smsService';
 import { API_ENDPOINTS } from '@/config/api';
+import { BookingConfirmationDialog } from '@/components/BookingConfirmationDialog';
 
 interface ServicesListProps {
   category: string;
@@ -772,78 +773,109 @@ const ServicesList: React.FC<ServicesListProps> = ({
 }) => {
   const categoryData = servicesData[category as keyof typeof servicesData];
   const [loadingBookings, setLoadingBookings] = useState<Set<string>>(new Set());
+  const [confirmationDialog, setConfirmationDialog] = useState<{
+    isOpen: boolean;
+    serviceName: string;
+    vendorName: string;
+  }>({
+    isOpen: false,
+    serviceName: '',
+    vendorName: ''
+  });
   
-  // ...existing code...
-const handleBooking = async (serviceName: string, vendorName: string) => {
-  const bookingKey = `${serviceName}-${vendorName}`;
-  
-  // Prevent multiple simultaneous bookings for the same service
-  if (loadingBookings.has(bookingKey)) {
-    return;
-  }
-
-  // Add to loading state
-  setLoadingBookings(prev => new Set(prev).add(bookingKey));
-
-  try {
-    const bookingData = {
-      bookedBy: familyData.members[0], // Person who logged in
-      bookedFor: selectedMember, // Person for whom service is booked
-      phone: familyData.phone,
-      service: serviceName,
-      vendor: vendorName,
-      category,
-      subcategory,
-      timestamp: new Date().toISOString()
-    };
-    
-    // Show initial booking confirmation
-    toast({
-      title: 'Booking Confirmed! 🎉',
-      description: `Service ${serviceName} booked for ${selectedMember}. Notifying vendor...`
+  // Function to show confirmation dialog
+  const showBookingConfirmation = (serviceName: string, vendorName: string) => {
+    setConfirmationDialog({
+      isOpen: true,
+      serviceName,
+      vendorName
     });
+  };
+
+  // Function to close confirmation dialog
+  const closeConfirmationDialog = () => {
+    setConfirmationDialog({
+      isOpen: false,
+      serviceName: '',
+      vendorName: ''
+    });
+  };
+
+  // Function to handle confirmed booking
+  const handleConfirmedBooking = async () => {
+    const { serviceName, vendorName } = confirmationDialog;
+    const bookingKey = `${serviceName}-${vendorName}`;
     
-    console.log('Booking data:', bookingData);
-    
-    // Send SMS to vendor
-    const smsSuccess = await sendSMSToVendor(bookingData);
-
-    await fetch(API_ENDPOINTS.BOOKINGS, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingData)
-      });
-    // --- ADD THIS BLOCK ---
-    if (smsSuccess) {
-      // Save booking to backend
-
-
-      // Additional success message for SMS
-      setTimeout(() => {
-        toast({
-          title: 'Vendor Notified! 📱',
-          description: `${vendorName} will contact you shortly to confirm the appointment.`
-        });
-      }, 1000);
+    // Prevent multiple simultaneous bookings for the same service
+    if (loadingBookings.has(bookingKey)) {
+      return;
     }
-    // --- END BLOCK ---
 
-  } catch (error) {
-    console.error('Booking error:', error);
-    toast({
-      title: 'Booking Error ❌',
-      description: 'There was an issue processing your booking. Please try again.',
-      variant: 'destructive'
-    });
-  } finally {
-    // Remove from loading state
-    setLoadingBookings(prev => {
-      const newSet = new Set(prev);
-      newSet.delete(bookingKey);
-      return newSet;
-    });
-  }
-};
+    // Add to loading state
+    setLoadingBookings(prev => new Set(prev).add(bookingKey));
+
+    try {
+      const bookingData = {
+        bookedBy: familyData.members[0], // Person who logged in
+        bookedFor: selectedMember, // Person for whom service is booked
+        phone: familyData.phone,
+        service: serviceName,
+        vendor: vendorName,
+        category,
+        subcategory,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Show initial booking confirmation
+      toast({
+        title: 'Booking Confirmed! 🎉',
+        description: `Service ${serviceName} booked for ${selectedMember}. Notifying vendor...`
+      });
+      
+      console.log('Booking data:', bookingData);
+      
+      // Send SMS to vendor
+      const smsSuccess = await sendSMSToVendor(bookingData);
+
+      await fetch(API_ENDPOINTS.BOOKINGS, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(bookingData)
+        });
+      // --- ADD THIS BLOCK ---
+      if (smsSuccess) {
+        // Save booking to backend
+
+
+        // Additional success message for SMS
+        setTimeout(() => {
+          toast({
+            title: 'Vendor Notified! 📱',
+            description: `${vendorName} will contact you shortly to confirm the appointment.`
+          });
+        }, 1000);
+      }
+      // --- END BLOCK ---
+
+      // Close the confirmation dialog
+      closeConfirmationDialog();
+
+    } catch (error) {
+      console.error('Booking error:', error);
+      toast({
+        title: 'Booking Error ❌',
+        description: 'There was an issue processing your booking. Please try again.',
+        variant: 'destructive'
+      });
+    } finally {
+      // Remove from loading state
+      setLoadingBookings(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(bookingKey);
+        return newSet;
+      });
+    }
+  };
 // ...existing code...
 
   // Show subcategories for Healthcare
@@ -938,7 +970,7 @@ const handleBooking = async (serviceName: string, vendorName: string) => {
                       </div>
                       <div className="ml-4">
                         <Button
-                          onClick={() => handleBooking(service.name, service.vendor)}
+                          onClick={() => showBookingConfirmation(service.name, service.vendor)}
                           disabled={isLoading}
                           className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                         >
@@ -963,6 +995,17 @@ const handleBooking = async (serviceName: string, vendorName: string) => {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Booking Confirmation Dialog */}
+      <BookingConfirmationDialog
+        isOpen={confirmationDialog.isOpen}
+        onClose={closeConfirmationDialog}
+        onConfirm={handleConfirmedBooking}
+        serviceName={confirmationDialog.serviceName}
+        vendorName={confirmationDialog.vendorName}
+        selectedMember={selectedMember}
+        isLoading={loadingBookings.has(`${confirmationDialog.serviceName}-${confirmationDialog.vendorName}`)}
+      />
     </div>
   );
 };
