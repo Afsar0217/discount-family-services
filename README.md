@@ -72,50 +72,6 @@ The application is fully optimized for mobile devices with:
    - Frontend: http://localhost:5173
    - Backend: http://localhost:4000
 
-## 🚀 Deployment
-
-### Render Blueprint Deployment
-
-This project is configured for easy deployment using Render's Blueprint feature.
-
-#### Quick Deployment Steps:
-
-1. **Test deployment configuration**
-   ```bash
-   npm run test:deployment
-   ```
-
-2. **Push to Git repository**
-   ```bash
-   git add .
-   git commit -m "Ready for deployment"
-   git push origin main
-   ```
-
-3. **Deploy on Render**
-   - Go to [Render Dashboard](https://dashboard.render.com)
-   - Click "New" → "Blueprint"
-   - Connect your Git repository
-   - Render will automatically detect the `render.yaml` configuration
-   - Click "Apply" to deploy
-
-4. **Configure environment variables**
-   - Set up your PostgreSQL database
-   - Configure all required environment variables
-   - See `DEPLOYMENT.md` for detailed instructions
-
-#### Required Environment Variables:
-
-**Backend:**
-- `DATABASE_URL`: PostgreSQL connection string
-- `NODE_ENV`: production
-- `PORT`: 4000
-
-**Frontend:**
-- `VITE_API_URL`: Backend service URL (auto-configured)
-- `VITE_TWILIO_*`: Twilio configuration (optional)
-- `VITE_VENDOR_*_PHONE`: Vendor phone numbers
-
 ## 📁 Project Structure
 
 ```
@@ -161,22 +117,8 @@ The application includes comprehensive mobile optimizations:
 - Mobile-specific spacing
 - Break-word handling for long text
 
-## 🧪 Testing
-
-```bash
-# Test deployment configuration
-npm run test:deployment
-
-# Run linting
-npm run lint
-
-# Build for production
-npm run build
-```
-
 ## 📖 Documentation
 
-- [Deployment Guide](DEPLOYMENT.md) - Detailed deployment instructions
 - [API Documentation](backend/server.js) - Backend API endpoints
 - [Component Documentation](src/components/) - React component structure
 
