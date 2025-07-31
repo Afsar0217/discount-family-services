@@ -25,15 +25,15 @@ const categories = [
 
 const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
       {categories.map((category) => (
         <Button
           key={category.name}
           onClick={() => onCategorySelect(category.name)}
-          className={`h-24 flex flex-col items-center justify-center bg-gradient-to-br ${category.color} hover:scale-105 transform transition-all duration-200 shadow-lg border-0 text-white font-semibold`}
+          className={`h-16 sm:h-20 md:h-24 flex flex-col items-center justify-center bg-gradient-to-br ${category.color} hover:scale-105 transform transition-all duration-200 shadow-lg border-0 text-white font-semibold p-2`}
         >
-          <div className="text-2xl mb-1">{category.icon}</div>
-          <div className="text-sm">{category.displayName}</div>
+          <div className="text-lg sm:text-xl md:text-2xl mb-1">{category.icon}</div>
+          <div className="text-xs sm:text-sm leading-tight text-center">{category.displayName}</div>
         </Button>
       ))}
     </div>

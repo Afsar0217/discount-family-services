@@ -65,30 +65,30 @@ const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, selectedL
 
   // Show categories after member selection
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-2 sm:p-4">
       <div className="max-w-4xl mx-auto">
-        <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm mb-6">
-          <CardHeader className="text-center">
-            <div className="text-4xl mb-2">🎯</div>
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+        <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm mb-4 sm:mb-6">
+          <CardHeader className="text-center px-4 sm:px-6">
+            <div className="text-3xl sm:text-4xl mb-2">🎯</div>
+            <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent leading-tight">
               Booking for: {selectedMember}
             </CardTitle>
             <div className="mt-2">
-              <Badge className="bg-green-500 text-white px-3 py-1">
+              <Badge className="bg-green-500 text-white px-2 sm:px-3 py-1 text-xs sm:text-sm">
                 📍 {selectedLocation}
               </Badge>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 sm:px-6">
             <div className="text-center">
-              <div className="text-lg font-medium mb-4">👇 Choose a Category:</div>
+              <div className="text-base sm:text-lg font-medium mb-4">👇 Choose a Category:</div>
               <CategoryGrid onCategorySelect={handleCategorySelect} />
             </div>
-            <div className="text-center mt-6 space-x-4">
-              <Button onClick={handleBack} variant="outline" className="border-2">
+            <div className="text-center mt-4 sm:mt-6 space-y-2 sm:space-y-0 sm:space-x-4">
+              <Button onClick={handleBack} variant="outline" className="border-2 w-full sm:w-auto mb-2 sm:mb-0">
                 ← Back
               </Button>
-              <Button onClick={onLogout} variant="outline" className="border-2">
+              <Button onClick={onLogout} variant="outline" className="border-2 w-full sm:w-auto">
                 Logout
               </Button>
             </div>
