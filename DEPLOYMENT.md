@@ -1,4 +1,4 @@
-# Render Blueprint Deployment Guide
+# Render Deployment Guide (Two-Step Process)
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@
    - Copy the "External Database URL"
    - Save it for later use
 
-### Step 2: Deploy Using Blueprint
+### Step 2: Deploy Backend Using Blueprint
 
 1. **Connect Your Repository**:
    - Go to Render Dashboard
@@ -34,48 +34,52 @@
 
 2. **Configure Blueprint**:
    - Render will automatically detect the `render.yaml` file
-   - Review the configuration
+   - Review the configuration (only backend service)
    - Click "Apply"
 
-3. **Set Environment Variables**:
-   - After the blueprint is applied, you'll need to configure environment variables
-   - Go to each service and add the required environment variables
+3. **Set Environment Variables for Backend**:
+   - After the blueprint is applied, go to your backend service
+   - Add the required environment variables:
+   ```
+   DATABASE_URL=postgresql://username:password@host:port/database
+   NODE_ENV=production
+   PORT=4000
+   ```
 
-### Step 3: Configure Environment Variables
+### Step 3: Deploy Frontend as Static Site
 
-#### Backend Service (`discount-family-services-api`)
+1. **Create Static Site**:
+   - Go to Render Dashboard
+   - Click "New" → "Static Site"
+   - Connect the same Git repository
+   - Configure the static site:
+     - **Name**: `discount-family-services-frontend`
+     - **Build Command**: `npm install && npm run build`
+     - **Publish Directory**: `dist`
 
-**Required Variables**:
-```
-DATABASE_URL=postgresql://username:password@host:port/database
-NODE_ENV=production
-PORT=4000
-```
+2. **Set Environment Variables for Frontend**:
+   - Add the following environment variables:
+   ```
+   VITE_API_URL=https://your-backend-service-name.onrender.com
+   VITE_SMS_ENABLED=true
+   VITE_SMS_MESSAGE_FORMAT=minimal
+   ```
 
-#### Frontend Service (`discount-family-services-frontend`)
+3. **Optional SMS Variables** (if using Twilio):
+   ```
+   VITE_TWILIO_ACCOUNT_SID=your_twilio_account_sid
+   VITE_TWILIO_AUTH_TOKEN=your_twilio_auth_token
+   VITE_TWILIO_PHONE_NUMBER=your_twilio_phone_number
+   VITE_TWILIO_MESSAGING_SERVICE_SID=your_messaging_service_sid
+   VITE_CENTRAL_NOTIFICATION_PHONE=your_central_phone_number
+   ```
 
-**Required Variables**:
-```
-VITE_API_URL=https://your-backend-service-name.onrender.com
-```
-
-**Optional Variables** (for SMS functionality):
-```
-VITE_TWILIO_ACCOUNT_SID=your_twilio_account_sid
-VITE_TWILIO_AUTH_TOKEN=your_twilio_auth_token
-VITE_TWILIO_PHONE_NUMBER=your_twilio_phone_number
-VITE_TWILIO_MESSAGING_SERVICE_SID=your_messaging_service_sid
-VITE_SMS_MESSAGE_FORMAT=minimal
-VITE_SMS_ENABLED=true
-VITE_CENTRAL_NOTIFICATION_PHONE=your_central_phone_number
-```
-
-**Vendor Phone Numbers** (add as needed):
-```
-VITE_VENDOR_DR_RAO_HOSPITAL_PHONE=9876543210
-VITE_VENDOR_PHARMACY_RAJU_PHONE=9876543210
-# ... add all other vendor phone numbers
-```
+4. **Vendor Phone Numbers** (add as needed):
+   ```
+   VITE_VENDOR_DR_RAO_HOSPITAL_PHONE=9876543210
+   VITE_VENDOR_PHARMACY_RAJU_PHONE=9876543210
+   # ... add all other vendor phone numbers
+   ```
 
 ### Step 4: Deploy and Test
 
@@ -84,13 +88,21 @@ VITE_VENDOR_PHARMACY_RAJU_PHONE=9876543210
    - Ensure both services deploy successfully
 
 2. **Test Your Application**:
-   - Frontend URL: `https://discount-family-services-frontend.onrender.com`
-   - Backend URL: `https://discount-family-services-api.onrender.com`
-   - Health Check: `https://discount-family-services-api.onrender.com/health`
+   - Frontend URL: `https://your-frontend-service-name.onrender.com`
+   - Backend URL: `https://your-backend-service-name.onrender.com`
+   - Health Check: `https://your-backend-service-name.onrender.com/health`
 
 3. **Verify Database Connection**:
    - Check the backend logs for database connection success
    - Test the `/api/bookings` endpoint
+
+## Why Two-Step Deployment?
+
+Render Blueprint doesn't support static sites in the YAML configuration. This two-step approach allows us to:
+- ✅ Deploy backend for free (750 hours/month)
+- ✅ Deploy frontend for free (unlimited static hosting)
+- ✅ Avoid payment requirements
+- ✅ Maintain full functionality
 
 ## Environment Variables Reference
 
