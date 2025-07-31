@@ -113,6 +113,10 @@ Render Blueprint requires payment for web services, but manual deployment allows
 3. **CORS Issues**: Backend is configured to allow Render domains
    - Frontend URL should be in the allowed origins
 
+4. **Build Errors**: 
+   - Backend: Use `npm install` as build command (no build step needed)
+   - Frontend: Use `npm install && npm run build`
+
 ### Performance Tips
 
 1. **Keep Backend Awake**: Use a service like UptimeRobot to ping your backend
