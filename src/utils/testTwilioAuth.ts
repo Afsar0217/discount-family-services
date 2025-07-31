@@ -40,5 +40,5 @@ export const testTwilioAuth = async () => {
 
 // Make it available globally for testing
 if (typeof window !== 'undefined') {
-  (window as any).testTwilioAuth = testTwilioAuth;
+  (window as Window & { testTwilioAuth?: typeof testTwilioAuth }).testTwilioAuth = testTwilioAuth;
 }

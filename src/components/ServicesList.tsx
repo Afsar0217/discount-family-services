@@ -15,6 +15,7 @@ interface ServicesListProps {
   onBack: () => void;
   familyData: any;
   selectedMember: string;
+  selectedLocation?: string;
 }
 
 const servicesData = {
@@ -881,23 +882,23 @@ const ServicesList: React.FC<ServicesListProps> = ({
   // Show subcategories for Healthcare
   if (category === 'Healthcare' && !subcategory) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-2 sm:p-4">
         <div className="max-w-2xl mx-auto">
           <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-xl font-bold text-center">
+            <CardHeader className="text-center px-4 sm:px-6">
+              <CardTitle className="text-lg sm:text-xl font-bold">
                 🏥 Healthcare Subcategories
               </CardTitle>
-              <div className="text-center text-sm text-gray-600">
+              <div className="text-center text-xs sm:text-sm text-gray-600 mt-2">
                 Booking for: <Badge variant="secondary">{selectedMember}</Badge>
               </div>
             </CardHeader>
-            <CardContent className="space-y-3">
+            <CardContent className="space-y-3 px-4 sm:px-6">
               {'subcategories' in categoryData && categoryData.subcategories?.map((sub) => (
                 <Button
                   key={sub}
                   onClick={() => onSubcategorySelect(sub)}
-                  className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-3 shadow-lg transform hover:scale-105 transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2 sm:py-3 shadow-lg transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
                 >
                   {sub}
                 </Button>
@@ -924,60 +925,61 @@ const ServicesList: React.FC<ServicesListProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 p-2 sm:p-4">
       <div className="max-w-2xl mx-auto">
         <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold text-center">
+          <CardHeader className="text-center px-4 sm:px-6">
+            <CardTitle className="text-lg sm:text-xl font-bold">
               {subcategory ? `${subcategory} Services` : `${category} Services`}
             </CardTitle>
-            <div className="text-center text-sm text-gray-600">
+            <div className="text-center text-xs sm:text-sm text-gray-600 mt-2">
               Booking for: <Badge variant="secondary">{selectedMember}</Badge>
             </div>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent className="space-y-3 px-4 sm:px-6">
             {services.map((service: any, index: number) => {
               const bookingKey = `${service.name}-${service.vendor}`;
               const isLoading = loadingBookings.has(bookingKey);
               
               return (
                 <Card key={index} className="border-2 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="flex justify-between items-center">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-lg text-blue-600 mb-1">{service.name}</h3>
-                        <Badge variant="secondary" className="mb-2">{service.vendor}</Badge>
+                  <CardContent className="p-3 sm:p-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start space-y-3 sm:space-y-0">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-base sm:text-lg text-blue-600 mb-1 break-words">{service.name}</h3>
+                        <Badge variant="secondary" className="mb-2 text-xs">{service.vendor}</Badge>
                         {service.location && (
-                          <p className="text-sm text-gray-600">
-                            <strong>Location:</strong> {service.location}
+                          <p className="text-xs sm:text-sm text-gray-600 mb-1">
+                            <strong>Location:</strong> <span className="break-words">{service.location}</span>
                           </p>
                         )}
                         {service.phone && (
-                          <p className="text-sm text-gray-600">
+                          <p className="text-xs sm:text-sm text-gray-600 mb-2">
                             <strong>Phone:</strong> <span className="text-green-600">{service.phone}</span>
                           </p>
                         )}
                         {service.discounts && service.discounts.length > 0 && (
                           <div className="mt-2">
-                            <p className="text-sm font-medium text-gray-700">Discounts:</p>
-                            <ul className="list-disc ml-4 text-sm text-gray-600">
+                            <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Discounts:</p>
+                            <ul className="list-disc ml-4 text-xs sm:text-sm text-gray-600 space-y-1">
                               {service.discounts.map((discount: string, i: number) => (
-                                <li key={i}>{discount}</li>
+                                <li key={i} className="break-words">{discount}</li>
                               ))}
                             </ul>
                           </div>
                         )}
                       </div>
-                      <div className="ml-4">
+                      <div className="sm:ml-4 sm:flex-shrink-0">
                         <Button
                           onClick={() => showBookingConfirmation(service.name, service.vendor)}
                           disabled={isLoading}
-                          className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                          className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm py-2 px-4"
                         >
                           {isLoading ? (
                             <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                              Booking...
+                              <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white mr-2"></div>
+                              <span className="hidden sm:inline">Booking...</span>
+                              <span className="sm:hidden">...</span>
                             </>
                           ) : (
                             'Book Now'

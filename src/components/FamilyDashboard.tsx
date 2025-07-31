@@ -8,10 +8,11 @@ import ServicesList from './ServicesList';
 
 interface FamilyDashboardProps {
   familyData: { phone: string; members: string[] };
+  selectedLocation: string;
   onLogout: () => void;
 }
 
-const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, onLogout }) => {
+const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, selectedLocation, onLogout }) => {
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
@@ -40,6 +41,7 @@ const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, onLogout 
     return (
       <FamilyMemberSelector 
         familyData={familyData}
+        selectedLocation={selectedLocation}
         onMemberSelect={handleMemberSelect}
         onLogout={onLogout}
       />
@@ -56,6 +58,7 @@ const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, onLogout 
         onBack={handleBack}
         familyData={familyData}
         selectedMember={selectedMember}
+        selectedLocation={selectedLocation}
       />
     );
   }
@@ -70,6 +73,11 @@ const FamilyDashboard: React.FC<FamilyDashboardProps> = ({ familyData, onLogout 
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Booking for: {selectedMember}
             </CardTitle>
+            <div className="mt-2">
+              <Badge className="bg-green-500 text-white px-3 py-1">
+                📍 {selectedLocation}
+              </Badge>
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-center">

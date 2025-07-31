@@ -5,12 +5,14 @@ import { Badge } from '@/components/ui/badge';
 
 interface FamilyMemberSelectorProps {
   familyData: { phone: string; members: string[] };
+  selectedLocation: string;
   onMemberSelect: (member: string) => void;
   onLogout: () => void;
 }
 
 const FamilyMemberSelector: React.FC<FamilyMemberSelectorProps> = ({ 
   familyData, 
+  selectedLocation,
   onMemberSelect, 
   onLogout 
 }) => {
@@ -23,6 +25,11 @@ const FamilyMemberSelector: React.FC<FamilyMemberSelectorProps> = ({
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Welcome back, {familyData.members[0]} family!
             </CardTitle>
+            <div className="mt-2">
+              <Badge className="bg-green-500 text-white px-3 py-1">
+                📍 {selectedLocation}
+              </Badge>
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-center mb-6">
