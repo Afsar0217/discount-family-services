@@ -9,7 +9,13 @@ const PORT = process.env.PORT || 4000;
 // CORS configuration for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://discount-family-services-frontend.onrender.com', 'https://discount-family-services-frontend.onrender.com/']
+    ? [
+        'https://discount-family-services-frontend.onrender.com',
+        'https://discount-family-services-frontend.onrender.com/',
+        'https://*.onrender.com',
+        'https://*.netlify.app',
+        'https://*.vercel.app'
+      ]
     : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
   optionsSuccessStatus: 200
