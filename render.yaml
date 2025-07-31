@@ -14,10 +14,9 @@ services:
       - key: PORT
         value: 4000
 
-  # Frontend Static Site  
-  - type: web
+  # Frontend Static Site (FREE TIER)
+  - type: static
     name: discount-family-services-frontend
-    env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
