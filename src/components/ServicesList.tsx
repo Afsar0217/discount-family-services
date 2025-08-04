@@ -20,133 +20,127 @@ interface ServicesListProps {
 
 const servicesData = {
   Healthcare: {
-    subcategories: ['హాస్పిటల్స్', 'మెడికల్', 'లేబొరేటరీ'],
+    subcategories: ['Hospitals', 'Pharmacy', 'Laboratory'],
     services: {
-      'హాస్పిటల్స్': [
+      'Hospitals': [
         { 
-          name: "Lullu Children's Hospital-లులు పిల్లల హాస్పిటల్", 
+          name: "🏥 లులు పిల్లల హాస్పిటల్ (Lullu Children's Hospital)", 
           vendor: 'Dr. Rao Hospital',
-          location: 'అమ్మ హాస్పిటల్ పక్కన , సిరిసిల్ల',
+          location: 'సిద్ధులవాడ, సిరిసిల్ల – 505301',
           phone: '9876543210',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'LAB tests🔬(excluding outsourced) - 30%'
+            '✅ ఓపీ ఫీజు (OP Consultation) 🩺 – ₹100 తగ్గింపు',
+            "✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 25% డిస్కౌంట్\n(గమనిక: Consumables, Pharmacy & Surgical items కు వర్తించదు)",
+            "✅ ల్యాబ్ టెస్టులు (LAB Tests) 🔬 – 25% డిస్కౌంట్\n(గమనిక: Outsourced పరీక్షలకు వర్తించదు)",
+            '✅ ఫార్మసీ (Pharmacy) 💊 – 10% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Aditya Neuro & Ortho-ఆదిత్య న్యూరో & ఆర్థో", 
+          name: "🏥 ఆదిత్య న్యూరో & ఆర్థో (Aditya Neuro & Ortho)", 
           vendor: 'Dr. Venkatesh Hospital',
-          location: 'Sircilla',
-          phone: '9876543210',
+          location: '📍 లొకేషన్: సిద్ధులవాడ, సిరిసిల్ల',
+          phone: '8247556370',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'Pharmacy - 10%'
+            '❌ ఓపీ (OP Consultation) 🩺 – డిస్కౌంట్ లేదు (Fast Treatment మాత్రమే అందుబాటులో ఉంటుంది)',
+            '✅ ల్యాబ్ టెస్టులు (LAB Tests) 🔬 – 20% డిస్కౌంట్\n(గమనిక: Outsourced పరీక్షలకు వర్తించదు)',
+            '✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 20% డిస్కౌంట్\n(గమనిక: Consumables, Pharmacy & Surgical Items కి వర్తించదు)',
+            '✅ ఫార్మసీ (Pharmacy) 💊 – 10% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Life Hospital-లైఫ్ హాస్పిటల్", 
+          name: "🏥 లైఫ్ హాస్పిటల్ (Life Hospital)", 
           vendor: 'Dr. Latha Hospital',
-          location: 'Opposite Municipal Office, Sircilla',
-          phone: '9876543210',
+          location: ' మునిసిపల్ ఆఫీస్ ఎదురు, సిరిసిల్ల',
+          phone: '9705021177',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'LAB tests🔬(excluding outsourced) - 30%',
-            'Pharmacy - 10%'
+            '✅ ఓపీ కన్సల్టేషన్ (OP) 🩺 – ₹99 తగ్గింపు',
+            '✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 20% డిస్కౌంట్\n(గమనిక: Consumables, Pharmacy & Surgical items‌కు వర్తించదు)',
+            '✅ ల్యాబ్ పరీక్షలు (LAB Tests) 🔬 – 20% డిస్కౌంట్\n(గమనిక: Outsourced టెస్టులకు వర్తించదు)',
+            '✅ ఫార్మసీ (Pharmacy) 💊 – 10% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Amrutha Hospital-అమృత పిల్లల హాస్పిటల్", 
+          name: "🏥 అమృత పిల్లల హాస్పిటల్ (Amrutha Hospital)", 
           vendor: 'Dr. Akhila Hospital',
-          location: 'Sircilla',
-          phone: '7799663223',
+          location: 'వాణి నర్సింగ్ హోమ్ పక్కన, సిరిసిల్ల',
+          phone: '9440282662',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'LAB tests🔬(excluding outsourced) - 30%'
+            '✅ ఓపీ కన్సల్టేషన్ (OP) 🩺 – ₹150 తగ్గింపు',
+            '✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 40% డిస్కౌంట్\n(గమనిక: Consumables, Pharmacy & Surgical items కు వర్తించదు)',
+            '✅ ల్యాబ్ పరీక్షలు (LAB Tests) 🔬 – 40% డిస్కౌంట్\n(గమనిక: Outsourced టెస్టులకు వర్తించదు)',
+            '❌ ఫార్మసీ (Pharmacy) 💊 – డిస్కౌంట్ లేదు'
           ]
         },
         { 
-          name: "Chandana Chest Hospital-చందన చెస్ట్ హాస్పిటల్", 
+          name: "🏥 చందన చెస్ట్ హాస్పిటల్ (Chandana Chest Hospital)", 
           vendor: 'Dr. Chandana Hospital',
-          location: 'Sircilla',
+          location: 'వాణి నర్సింగ్ హోమ్ పక్కన, సిరిసిల్ల',
           phone: '7799663223',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'LAB tests🔬(excluding outsourced) - 30%'
+            '✅ ఓపీ కన్సల్టేషన్ (OP) 🩺 – ₹99 తగ్గింపు',
+            '✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 25% డిస్కౌంట్\n(గమనిక: Consumables, Pharmacy & Surgical items కు వర్తించదు)',
+            '✅ ల్యాబ్ పరీక్షలు (LAB Tests) 🔬 – 25% డిస్కౌంట్\n(గమనిక: Outsourced టెస్టులకు వర్తించదు)',
+            '✅ ఫార్మసీ (Pharmacy) 💊 – 10% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Sri Siddi Vinayaka E.N.T Hospital-శ్రీ సిద్ది వినాయక E.N.T హాస్పిటల్", 
+          name: "🏥 శ్రీ సిద్ది వినాయక E.N.T హాస్పిటల్", 
           vendor: 'Dr. Sai Shankar Hospital',
-          location: '3-2-84/1, Near Old Bus Stand,Sircilla, Rajanna Sircilla, 505301',
+          location: '3-2-84/1, ఓల్డ్ బస్ స్టాండ్ దగ్గర, సిరిసిల్ల – 50530',
           phone: '7799663223',
           discounts: [
-            'OP🩺 - 100 OFF%',
-            'IP Billing🛏️(excluding: consumables, pharmacy & surgicals) - 25%',
-            'LAB tests🔬(excluding outsourced) - 30%'
+            '✅ ఓపీ కన్సల్టేషన్ (OP) 🩺 – ₹100 తగ్గింపు',
+            '✅ ఐపీ బిల్లింగ్ (IP Billing) 🛏️ – 25% డిస్కౌంట్',
+            '✅ ల్యాబ్ పరీక్షలు (LAB Tests) 🔬 – 30% డిస్కౌంట్\n(గమనిక: Outsourced టెస్టులకు వర్తించదు)',
+            '✅ ఫార్మసీ (Pharmacy) 💊 – 10% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Vihaana Multispeciality Dental Care-విహానా మల్టీస్పెషాలిటీ డెంటల్ కేర్", 
+          name: "🦷 విహానా మల్టీస్పెషాలిటీ డెంటల్ కేర్", 
           vendor: 'Dr. Vikram Hospital',
-          location: 'Karimnagar - Sircilla Rd, near OLD BUS STAND, Shanti Nagar, Sircilla, Telangana 505301',
+          location: 'కరీంనగర్ – సిరిసిల్ల రోడ్, ఓల్డ్ బస్ స్టాండ్ వద్ద, సిరిసిల్ల',
           phone: '7799663223',
           discounts: [
-            'OP🩺 - 99-/Only',
-            'Demtal Care - 25% to 30%',
-            'Laser Flop Surgery(excluding outsourced) - 40%'
+            '✅ ఓపీ కన్సల్టేషన్ (OP) 🩺 – ఉచితం (FREE)',
+            '✅ ఎక్స్‌రే (X-ray) 🖼️ – ఉచితం (FREE)',
+            '✅ డెంటల్ కేర్ (Dental Care) 🦷 – 25% నుండి 30% డిస్కౌంట్',
+            '✅ లేజర్ ఫ్లాప్ సర్జరీ (Laser Flap Surgery) 🔬 – UPto 40% డిస్కౌంట్'
           ]
         },
         { 
-          name: "Vinayaka Dental Care-వినాయక డెంటల్ కేర్ -women docter", 
+          name: "👁️‍🗨️ శివసాయి కళ్ల హాస్పిటల్ (ShivaSai Optics)", 
           vendor: 'Dr. Akhila Hospital',
-          location: 'opposite Collage Ground, in manasa hospital, Sircilla, Telangana 505301',
+          location: 'ఓల్డ్ బస్ స్టాండ్ ఎదురు, సిరిసిల్ల',
           phone: '7799663223',
           discounts: [
-            'OP🩺 - FREE',
-            'Laser Flop Surgery(excluding outsourced) - 40%',
-            'LAB tests🔬(excluding outsourced) - 30%'
-          ]
-        },
-        { 
-          name: "ShivaSai Optics-శివసాయి కళ్ళ హాస్పిటల్", 
-          vendor: 'Dr. Akhila Hospital',
-          location: 'opposite Old Bus Stand, Sircilla, Telangana 505301',
-          phone: '7799663223',
-          discounts: [
-            'Glasses - start Just -649',
-            'eye check up - FREE',
-            'Branded Glasses - 25% to 30%'
+            '✅ కంటి పరీక్ష (Eye Checkup) – ఉచితం (FREE)',
+            '👓 గ్లాసెస్ (Normal Glasses) – ₹599 నుండే ప్రారంభం',
+            '🕶️ బ్రాండెడ్ గ్లాసెస్ (Branded Glasses) – 25% నుండి 30% డిస్కౌంట్ '
           ]
         },
       ],
-      'మెడికల్': [
+      'Pharmacy': [
         { 
-          name: 'Sri Siddi Vinayaka Medical store-శ్రీ సిద్ది వినాయక మెడికల్ స్టోర్', 
+          name: '💊 శ్రీ సిద్ది వినాయక మెడికల్ స్టోర్', 
           vendor: 'Pharmacy Venkat',
-          location: 'Near Old Bus Stand,Sircilla, Rajanna Sircilla, 505301',
+          location: 'ఓల్డ్ బస్ స్టాండ్ సమీపంలో, సిరిసిల్ల, రాజన్న సిరిసిల్ల – 505301',
           phone: '9876543211',
           discounts: [
-            'Ethical Medicine - 23%',
-            'Personal Care & Hygiene - 10 to 15%',
-            'Medical Devices & Accessories - 20 to 50%'
+            '✅ ఎథికల్ మెడిసిన్ (Ethical Medicines) – 23% డిస్కౌంట్',
+            '✅ పర్సనల్ కేర్ & హైజీన్ (Personal Care & Hygiene) – 10% నుండి 15% డిస్కౌంట్',
+            '✅ మెడికల్ డివైసెస్ & యాక్సెసరీస్ (Medical Devices & Accessories) – 20% నుండి 50% డిస్కౌంట్'
           ]
         }
       ],
-      'లేబొరేటరీ': [
+      'Laboratory': [
         { 
-          name: 'Laboratory', 
+          name: '🧪 ల్యాబొరేటరీ (Laboratory)', 
           vendor: 'Sudha Diagnostics',
-          location: 'Hospital Road, Karimnagar',
+          location: 'ఓల్డ్ బస్ స్టాండ్ సమీపంలో, సిరిసిల్ల',
           phone: '9876543212',
           discounts: [
-            '20% on blood tests',
-            'Special Tests - 25%',
-            'Packages - 40%'
+            '✅ బ్లడ్ టెస్టులు (Blood Tests) – 40% డిస్కౌంట్',
+            '✅ స్పెషల్ టెస్టులు (Special Tests) – 30% డిస్కౌంట్'
           ]
         }
       ]
@@ -155,36 +149,32 @@ const servicesData = {
   Banking: {
     services: [
       { 
-        name: 'HDFC క్రెడిట్ కార్డ్', 
+        name: '💳 క్రెడిట్ / డెబిట్ కార్డ్స్ ప్రత్యేక ప్రయోజనాలు', 
         vendor: 'SBI Cards Center',
-        location: 'Bus Stand',
         phone: '7799663223',
         discounts: [
-          '10% EMI offers',
-          '₹1000 bonus',
-          '15% lounge access'
+          '✅ ఎలాంటి ఎక్సట్రా ఛార్జెస్ లేదు',
+          '✅ మనీ రివార్డ్స్ (Money Rewards) – ₹1000 వరకు లభించవచ్చు'
         ]
       },
       { 
-        name: 'లోన్స్', 
+        name: '🏦 లోన్స్ (Loans)', 
         vendor: 'HDFC Loan Point',
-        location: 'discountmithra',
         phone: '7799663223',
         discounts: [
-          '5% processing fee off',
-          'Quick processing in 24 hours',
-          '15% service offer'
+          '✅ LOW Processing Fee',
+          '✅ NO Extra Commission',
+          '✅ Quick Processing – తక్కువ టైమ్ లో ఆమోదం'
         ]
       },
       { 
-        name: 'డెబిట్ & క్రెడిట్స్', 
+        name: '💰 గోల్డ్ లోన్స్ – DiscountMithra VIP బెనిఫిట్స్', 
         vendor: 'Muthoot Finance',
-        location: 'discountmithra',
         phone: '9876543215',
         discounts: [
-          'Instant cash against gold',
-          'Flexible repayment options',
-          '15% service offer'
+          '✅ LOW Interest Rates – తక్కువ వడ్డీ రేట్లు',
+          '✅ Fast Processing – వేగంగా లోన్ పొందండి',
+          '✅ సురక్షితమైన గోల్డ్ స్టోరేజ్'
         ]
       }
     ]
@@ -192,111 +182,59 @@ const servicesData = {
   Shopping: {
     services: [
       { 
-        name: 'Vishala Shopping Mall', 
+        name: '🛍️ విశాల షాపింగ్ మాల్ (Vishala Shopping Mall)', 
         vendor: 'Clothing',
-        location: 'Near Gandi chowk',
+        location: 'గాంధీ చౌక్ సమీపంలో, సిరిసిల్ల',
         phone: '9876543216',
         discounts: [
-          '30% off on branded clothing',
-          'Buy 2 Get 1 Free offers',
-          'Seasonal sale discounts'
+          '✅ టోటల్ బిల్‌పై 5% ఎక్స్ట్రా డిస్కౌంట్'
         ]
       },
       { 
-        name: 'Reliance Trends', 
+        name: '👔 Adven Men’s Fashion Store', 
         vendor: 'Clothing',
-        location: 'Near Old Bus stand',
+        location: 'గోపాల్ నగర్, సిరిసిల్ల',
         phone: '9876543217',
         discounts: [
-          '7% discount on Cash Vochers',
-          'Online Discount Coupons'
+          '✅ టోటల్ బిల్‌పై 10% డిస్కౌంట్'
         ]
       },
       { 
-        name: 'MAX Fashion Online', 
-        vendor: 'Electronics',
+        name: '🛍️ Reliance Trends', 
+        vendor: 'Clothing',
+        location: 'ఓల్డ్ బస్ స్టాండ్ సమీపంలో, సిరిసిల్ల',
+        phone: '7799663223',
+        discounts: [
+          '✅ Cash Vouchersపై 5% డిస్కౌంట్'
+        ]
+      },
+      { 
+        name: '👗 MAX Fashion Online & Store', 
+        vendor: 'Electronics+Fashion',
         location: 'www.maxfashion.in',
         phone: '9876543218',
         discounts: [
-          '10% Extra discount',
-          'EMI options available'
+          '🛒 ఆన్‌లైన్ షాపింగ్‌ (Website ద్వారా):\n✅ Cash Voucherపై 10% డిస్కౌంట్',
+          '🏬 స్టోర్ లో షాపింగ్‌:\n✅ Cash Voucherపై 5% డిస్కౌంట్'
         ]
       },
       { 
-        name: 'Reliance Jio Mart', 
-        vendor: 'Electronics',
-        location: 'www.jiomart.com',
-        phone: '9876543218',
-        discounts: [
-          '4% Extra discount',
-          'EMI options available',
-          'Free delivery above ₹199'
-        ]
-      },
-      { 
-        name: 'Zepto', 
-        vendor: 'Online Delivery',
-        location: 'www.zeptonow.com',
-        phone: '9876543219',
-        discounts: [
-          '10% Extra discount',
-          '10-minute delivery',
-          'Fresh groceries guaranteed'
-        ]
-      },
-      { 
-        name: 'Skechers', 
+        name: '👟 Skechers', 
         vendor: 'Footwear',
         location: 'www.skechers.in',
-        phone: '9876543220',
+        phone: '7799663223',
         discounts: [
-          '10% Extra discount',
-          'Comfortable walking shoes',
-          'Athletic footwear collection'
+          '🛒 ఆన్‌లైన్ షాపింగ్‌కే వర్తిస్తుంది:\n✅ Cash Voucherపై 10% డిస్కౌంట్'
         ]
       },
       { 
-        name: 'Jockey Online', 
+        name: '🩳 Jockey (Online Only)', 
         vendor: 'Clothing',
         location: 'www.jockey.in',
-        phone: '9876543221',
+        phone: '9876543220',
         discounts: [
-          '10% Extra discount',
-          'Premium innerwear collection',
-          'Free shipping above ₹799'
-        ]
-      },
-      { 
-        name: 'Boat', 
-        vendor: 'Electronics',
-        location: 'www.boat-lifestyle.com',
-        phone: '9876543222',
-        discounts: [
-          '5% Extra discount',
-          'Audio accessories',
-          '1-year warranty'
-        ]
-      },
-      { 
-        name: "Men's Fashion Store", 
-        vendor: 'Clothing',
-        location: 'Coming Soon',
-        phone: '9876543223',
-        discounts: [
-          '10% Extra discount',
-          '15% on accessories',
-          'Festival deals'
-        ]
-      },
-      { 
-        name: 'Premium Cloth Store', 
-        vendor: 'Clothing',
-        location: 'Coming Soon',
-        phone: '9876543224',
-        discounts: [
-          '10% Extra discount',
-          '15% on accessories',
-          '20% Bulk Orders'
+          '✅ Cash Voucherపై 10% డిస్కౌంట్',
+          '💻 ఈ ఆఫర్ కేవలం Online Shopping వాడినపుడు మాత్రమే వర్తిస్తుంది.'
         ]
       }
     ]
@@ -306,133 +244,85 @@ const servicesData = {
       { 
         name: 'Zomato', 
         vendor: 'Online Food Delivery',
-        location: 'Www.Zomato.com',
-        phone: '9876543219',
+        location: 'www.zomato.com',
+        phone: '7799663223',
         discounts: [
-          '20% off on first order',
-          'Monthly subscription discount',
-          'Free home delivery'
+          '✅ Cash Voucherపై 4% డిస్కౌంట్',
+          '🍕 మీ ఫేవరెట్ ఫుడ్‌ను ఆర్డర్ చేయండి – కాంప్లిమెంటరీ డిస్కౌంట్‌తో!'
         ]
       },
       { 
-        name: 'KFC', 
-        vendor: 'Fast Food',
-        location: 'KFC',
-        phone: '9876543220',
+        name: '🍨 Ice House', 
+        vendor: 'Ice Creams, Pizza, Burgers',
+        location: 'Opposite Union Bank, సిరిసిల్ల',
+        phone: '7799663223',
         discounts: [
-          'Buy 1 Get 1 Free on burgers',
-          'Family pack offers'
+          '✅ బిల్‌పై 10% డిస్కౌంట్',
+          '✅ ₹999కి పైగా బిల్స్‌పై 15% డిస్కౌంట్'
         ]
       },
       { 
-        name: 'McDonalds', 
+        name: '🥟 Shankar Pani Puri', 
         vendor: 'Fast Food',
-        location: 'McDonalds',
+        location: 'గాంధీ నగర్ శివాలయం ముందు, సిరిసిల్ల',
         phone: '9876543221',
         discounts: [
-          'Free fries with any meal',
-          'Buy 3 Get 1 Free'
-        ] 
-      },
-      { 
-        name: '7 Arts Restaurant', 
-        vendor: 'Restaurant',
-        location: 'Gandhi Nagar',
-        phone: '9876543222',
-        discounts: [
-          'Party discounts',
-          '10% off on family meals',
-          'Free dessert with every meal'
-        ] 
-      },
-      { 
-        name: 'Ice House', 
-        vendor: 'Ice Cream Parlor',
-        location: 'Gandhi Nagar',
-        phone: '9876543223',
-        discounts: [
-          'Buy 1 Get 1 Free on scoops',
-          '20% off on family packs',
-          'Premium ice cream flavors'
-        ] 
-      },
-      { 
-        name: 'Shankar Pani Puri', 
-        vendor: 'Fast Food',
-        location: 'Shivaalayam',
-        phone: '9876543224',
-        discounts: [
-          '15% bill discount',
-          'Free pani puri with every order',
-          'Special combo offers'
+          '✅ బిల్‌పై 15% డిస్కౌంట్',
+          '₹200 కి పైగా బల్క్ ఆర్డర్స్‌పై 20% డిస్కౌంట్'
         ] 
       }
     ]
   },
-  Automobile: {
+  Automobiles: {
     services: [
       { 
-        name: 'Car Repair Pro', 
+        name: 'వాసవి ఆటో మొబైల్స్ – కార్ & బైక్ స్పేర్ పార్ట్స్', 
         vendor: 'Auto Care',
-        location: 'Old Petrol Bunk',
+        location: 'కరీంనగర్ రోడ్, సిరిసిల్ల – 505301',
         phone: '9876543222',
         discounts: [
-          '20% on labor',
-          'Genuine spare parts only',
-          '20% off on regular service'
+          '🛠️ అన్ని రకాల బ్రాండెడ్ కార్ & బైక్ స్పేర్ పార్ట్స్r',
+          '💥 10% నుండి 25% వరకు డిస్కౌంట్',
+          '💰 Low Price Guarantee – తక్కువ ధరల్లో హై క్వాలిటీ!'
         ]
       },
       { 
-        name: 'Bike Repair Hub', 
-        vendor: 'Bike Masters',
-        location: 'Near College',
-        phone: '9876543223',
-        discounts: [
-          'Interior and exterior cleaning',
-          'Parts discount - 10%',
-          'Eco-friendly products used'
-        ]
-      },
-      { 
-        name: 'Vasavi Auto Mobiles', 
-        vendor: 'Battery Services',
-        location: 'Karimnagar Road',
-        phone: '9876543224',
-        discounts: [
-          'Free battery testing'
-        ]
-      },
-      { 
-        name: 'Sri Manjunatha Hydraulic Water Servicing Center', 
+        name: '🚗 శ్రీ మంజునాథ హైడ్రాలిక్ వాటర్ సర్విసింగ్ సెంటర్', 
         vendor: 'Hydraulic Services',
-        location: 'Srinagar Colony, Karimnagar Road',
+        location: 'కరీంనగర్ రోడ్, శ్రీనగర్ కాలనీ, కామన్ పక్కన',
         phone: '9876543225',
         discounts: [
-          'Free hydraulic testing',
-          '10% off on repairs',
-          'Quality hydraulic services'
+          '🛵 3, 4, 6 వాహనాలపై ప్రత్యేక ఆఫర్లు!',
+          '🧼 హైడ్రాలిక్ వాటర్ వాష్ – ప్రొఫెషనల్ సర్విసింగ్',
+          '💸 ప్రతి వాహనంపై ₹100 తగ్గింపు',
+          '💰 Low Price Guarantee',
+          '📍 DiscountMithra ద్వారా బుక్ చేసుకుంటే మాత్రమే!'
         ]
       },
       { 
-        name: 'Sridurga Battery', 
+        name: '🔋 Amaron బ్యాటరీస్', 
         vendor: 'Battery Services',
-        location: 'Chandrampet Hanuman Temple Chowrasta, Karimnagar Road, Sircilla',
+        location: 'కరీంనగర్ రోడ్, సిరిసిల్ల',
         phone: '9876543226',
         discounts: [
-          '35% Discount on Amaron Battery (with exchange)',
-          'Free battery testing',
-          'Genuine battery warranty'
+          '💥 35%  తక్కువ ధర – ఇతర స్టోర్లతో పోలిస్తే స్పష్టమైన ధర తేడా',
+          '💰 Low Price Guarantee',
+          '🚚 అవసరమైతే ఫ్రీ డెలివరీ కూడా అందుబాటులో!'
         ]
       },
       { 
-        name: 'Engine Carbon Cleaning Service', 
+        name: '🛠️ ఎంజిన్ కార్బన్ క్లీనింగ్ సర్వీస్', 
         vendor: 'Engine Services',
-        location: 'Coming Soon',
+        location: 'సిరిసిల్ల',
         phone: '9876543227',
         discounts: [
-          'Free engine carbon cleaning',
-          'Improved fuel efficiency',
-          'Professional engine care'
+          '🚗 కార్ & బైక్ రెండింటికీ సరిపోతుంది',
+          '💥 ఇప్పుడే బుక్ చేస్తే 50% తగ్గింపు',
+          '💰 Low Price Guarantee',
+          '✅ ఇంజిన్ ఫెర్ఫార్మెన్స్ మెరుగవుతుంది',
+          '✅ మైలేజ్ పెరుగుతుంది – ఇంధనంలో పొదుపు',
+          '✅ స్మూత్ డ్రైవింగ్ ఎక్స్‌పీరియెన్స్',
+          '✅ ఇంజిన్ లైఫ్ పెరుగుతుంది'
         ]
       }
     ]
@@ -506,25 +396,26 @@ const servicesData = {
   Salon: {
     services: [
       { 
-        name: 'Hairzone (Men & Women)', 
+        name: '💇‍♂️💇‍♀️ Hairzone (Men & Women)', 
         vendor: 'Men & Women',
-        location: 'Gandhi Nagar',
+        location: 'గాంధీ నగర్, సిరిసిల్ల',
         phone: '9876543228',
         discounts: [
-          '25% haircut',
-          '30% parlour services',
-          'Student discounts available'
+          '✅ హెయిర్‌కట్ పై 25% డిస్కౌంట్',
+          '✅ పార్లర్ సర్వీసులపై 25% డిస్కౌంట్ ',
+          '✅ టాటూ పై 25% డిస్కౌంట్'
         ]
       },
       { 
-        name: 'Parlour and boutique', 
+        name: '💅 Beauty Parlour – Ladies Special', 
         vendor: 'Beauty Services',
-        location: 'Children Plaza, Karimnagar',
+        location: 'గాంధీ నగర్ దగ్గర, సిరిసిల్ల',
         phone: '9876543229',
         discounts: [
-          '20% haircut',
-          '30% parlour services',
-          'Student discounts available'
+          '✅ హెయిర్‌కట్ పై 20% డిస్కౌంట్',
+          '✅ పార్లర్ సర్వీసులపై 20% డిస్కౌంట్',
+          '✅ ప్యాకేజులపై 20% డిస్కౌంట్',
+          '✨ బ్యూటీ, గ్లో & రిలాక్సేషన్ – అన్నీ ఇప్పుడు తక్కువ ధరకి!'
         ]
       }
     ]
@@ -534,73 +425,62 @@ const servicesData = {
       { 
         name: 'CleanZone Laundry', 
         vendor: 'Professional Laundry Services',
-        location: 'ShanthiNagar Road',
+        location: 'శాంతినగర్ రోడ్, సిరిసిల్ల',
         phone: '7799663223',
         discounts: [
-          '20% on dry cleaning',
-          'Free delivery',
-          'Monthly plans'
-        ]
-      },
-      { 
-        name: 'Wash Express', 
-        vendor: 'Quick Laundry Services',
-        location: 'Soon',
-        phone: '7799663223',
-        discounts: [
-          '15% wash/iron',
-          'Free delivery'
+          '✅ వాష్/ఐరన్  సర్వీసులపై 20% డిస్కౌంట్',
+          '✅ డ్రై క్లీనింగ్ పై 20% డిస్కౌంట్',
+          '🚚 ఫ్రీ డెలివరీ అందుబాటులో ఉంది (డిస్కౌంట్ లేదు)'
         ]
       }
     ]
   },
-  Education: {
-    services: [
-      { 
-        name: 'Online Skill Development', 
-        vendor: 'Skill Academy',
-        location: 'Online',
-        phone: '7799663223',
-        discounts: [
-          '100+Free Courses with Certigication',
-          'Free Trial Classes'
-        ]
-      },
-      { 
-        name: 'Sircilla High School', 
-        vendor: 'Schooling',
-        location: 'Soon',
-        phone: '7799663223',
-        discounts: [
-          '10% fee discount',
-          'Free books for first 100 students',
-          'Scholarships available'
-        ]
-      },
-      { 
-        name: 'Sircilla Inter College', 
-        vendor: 'Schooling',
-        location: 'Soon',
-        phone: '7799663223',
-        discounts: [
-          '10% fee discount',
-          'Free study materials',
-          'Career guidance'
-        ]
-      },
-      { 
-        name: 'Sircilla Degree College', 
-        vendor: 'Schooling',
-        location: 'Soon',
-        phone: '7799663223',
-        discounts: [
-          '20% fee discount',
-          'Placement assistance',
-          'Library access'
-        ]
-      }
-    ]
-  },
+  //   services: [
+  //     { 
+  //       name: 'Online Skill Development', 
+  //       vendor: 'Skill Academy',
+  //       location: 'Online',
+  //       phone: '7799663223',
+  //       discounts: [
+  //         '100+Free Courses with Certigication',
+  //         'Free Trial Classes'
+  //       ]
+  //     },
+  //     { 
+  //       name: 'Sircilla High School', 
+  //       vendor: 'Schooling',
+  //       location: 'Soon',
+  //       phone: '7799663223',
+  //       discounts: [
+  //         '10% fee discount',
+  //         'Free books for first 100 students',
+  //         'Scholarships available'
+  //       ]
+  //     },
+  //     { 
+  //       name: 'Sircilla Inter College', 
+  //       vendor: 'Schooling',
+  //       location: 'Soon',
+  //       phone: '7799663223',
+  //       discounts: [
+  //         '10% fee discount',
+  //         'Free study materials',
+  //         'Career guidance'
+  //       ]
+  //     },
+  //     { 
+  //       name: 'Sircilla Degree College', 
+  //       vendor: 'Schooling',
+  //       location: 'Soon',
+  //       phone: '7799663223',
+  //       discounts: [
+  //         '20% fee discount',
+  //         'Placement assistance',
+  //         'Library access'
+  //       ]
+  //     }
+  //   ]
+  // },
   Travels: {
     services: [
       { 
@@ -687,52 +567,91 @@ const servicesData = {
       }
     ]
   },
-  Tailor: {
-    services: [
-      { 
-        name: 'Perfect Stitch - Men', 
-        vendor: 'Tailoring Services',
-        location: 'Shanthinagar',
-        phone: '7799663223',
-        discounts: [
-          '20% off on first order',
-          'Free fitting session'
-        ]
-      }
-    ]
-  },
+  //   services: [
+  //     { 
+  //       name: 'Perfect Stitch - Men', 
+  //       vendor: 'Tailoring Services',
+  //       location: 'Shanthinagar',
+  //       phone: '7799663223',
+  //       discounts: [
+  //         '20% off on first order',
+  //         'Free fitting session'
+  //       ]
+  //     }
+  //   ]
+  // },
   Events: {
     services: [
       { 
-        name: 'Discountmithra Dream Events', 
+        name: '🌸 ఫ్లవర్ డెకరేషన్ – మీ వేడుకలకు మేమే సరైన ఎంపిక!', 
         vendor: 'Event Management',
-        location: 'Sircilla,505301',
         phone: '7799663223',
         discounts: [
-          '10% off on first event booking',
-          'Free consultation'
+          '🎉 బర్త్‌డేలు | పెళ్లిళ్లు | హౌస్ వార్మింగ్ | ఫంక్షన్స్',
+          '💐 మీ వేడుకను అందంగా, ఆకర్షణీయంగా ముస్తాబు చేస్తాము',
+          '💰 బయటి ధరల కంటే 20% తక్కువ',
+          '✅ Creative Designs | Quality Flowers | Time-bound Setup',
+          '📞 ఇప్పుడే బుక్ చేసుకోండి – మీ డేట్ కి ముందే ప్లాన్ చేసుకుందాం!'
         ]
       },
       { 
-        name: 'Grand Flower Decoration', 
+        name: '🎪 టెంట్ హౌస్ సేవలు', 
         vendor: 'Decoration Services',
-        location: 'Gandhi Nagar',
         phone: '7799663223',
         discounts: [
-          '15% off on party decorations',
-          'Free setup for first 5 bookings',
-          '20% Wedding decor'
+          '✅ 15% డిస్కౌంట్',
+          '✅ Chairs, Shamiyana, Tables, Lighting, Stage Setup',
+          '🎉 బర్త్‌డే, పెళ్లి, ఫంక్షన్, అన్నప్రాశన, అన్ని వేడుకలకి',
+          '💯 Low Price Guarantee – బైట రేట్లకంటే తక్కువగా',
+          '🕐 టైమ్ కి సెట్ అప్ – నాణ్యతతో సేవ'
         ]
       },
       { 
-        name: 'Catering Deals', 
-        vendor: 'Catering Services',
-        location: 'Gandhi Nagar',
+        name: '🎧 DJ సేవలు', 
+        vendor: 'DJ Services',
         phone: '7799663223',
         discounts: [
-          '10% Catering deal',
-          '15% on party orders',
-          'Free tasting session'
+          '🎶 వేడుకలు మరింత మజాగా మార్చే DJ సెటప్',
+          '✅ Sound System, Lights, Smoke Effects, Stage',
+          '🎉 బర్త్‌డే, పెళ్లి, రిసెప్షన్, ఫంక్షన్, కాలేజ్/స్కూల్ ఈవెంట్స్',
+          '💰 15% వరకు డిస్కౌంట్',
+          '🔊 Quality Sound | Time-bound Setup | Professional Crew'
+        ]
+      },
+            { 
+        name: '🎺 బ్యాండ్ / చప్పుడు సేవలు ', 
+        vendor: 'Band Services',
+        phone: '7799663223',
+        discounts: [
+          '🎉 పెళ్లిళ్లు, శుభకార్యాలు, ప్రాసెషన్లు, విందు వేడుకలకి',
+          '🥁 Drum, Trumpet, Shehnai, Dhol Teams అందుబాటులో',
+          '💰 10% వరకు తగ్గింపు',
+          '💯 Low Price Guarantee – బైట రేట్లకంటే తక్కువ ధర',
+          '🎵 శ్రావ్యమైన సంగీతం | టైమ్ కి సర్వీస్ | అనుభవజ్ఞులైన టీమ్'
+        ]
+      },
+            { 
+        name: '👨‍🍳 కేటరింగ్ సేవలు', 
+        vendor: 'Catering Services',
+        phone: '7799663223',
+        discounts: [
+          '🍛 స్వీట్‌లు, కర్రీలు, స్టార్టర్స్, బిర్యానీలు & స్పెషల్ మెనూలు',
+          '🎉 పెళ్లిళ్లు, బర్త్‌డేలు, హౌస్ వార్మింగ్, అన్నప్రాశన, అన్ని వేడుకలకు',
+          '🍽️ Veg / Non-Veg రెండు అందుబాటులో',
+          '💰 10% వరకు డిస్కౌంట్',
+          '✅ రుచికరమైన భోజనం | శుభ్రత | టైమ్ కి సర్వీస్'
+        ]
+      },
+            { 
+        name: '🏛️ ఫంక్షన్ హాల్ బుకింగ్', 
+        vendor: 'Booking Services',
+        phone: '7799663223',
+        discounts: [
+          '🎉 పెళ్లిళ్లు, బర్త్‌డేలు, ఎంగేజ్మెంట్లు, హౌస్ వార్మింగ్, అన్నప్రాశన, అన్ని శుభకార్యాలకి',
+          '🏠 AC / Non-AC హాల్స్ అందుబాటులో',
+          '🪑 Tables, Chairs, Stage, Decoration Support',
+          '💰 5% – 10% వరకు తగ్గింపు',
+          '💯 Low Price Guarantee + Clean & Spacious Halls'
         ]
       }
     ]
