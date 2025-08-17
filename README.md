@@ -67,11 +67,6 @@ The application is fully optimized for mobile devices with:
    ```bash
    npm run dev
    ```
-
-5. **Access the application**
-   - Frontend: http://localhost:5173
-   - Backend: http://localhost:4000
-
 ## 📁 Project Structure
 
 ```
@@ -108,35 +103,14 @@ To enable SMS notifications:
 2. Configure Twilio environment variables
 3. Set `VITE_SMS_ENABLED=true`
 
-## 📱 Mobile Optimization
-
-The application includes comprehensive mobile optimizations:
-- Responsive grid layouts
-- Touch-friendly buttons
-- Optimized text sizing
-- Mobile-specific spacing
-- Break-word handling for long text
-
 ## 📖 Documentation
 
 - [API Documentation](backend/server.js) - Backend API endpoints
 - [Component Documentation](src/components/) - React component structure
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
 ## 📄 License
 
 This project is licensed under the ISC License.
-
-## 🆘 Support
-
-For deployment issues, see the [Deployment Guide](DEPLOYMENT.md) or check the [Render Documentation](https://docs.render.com).
 
 ---
 
