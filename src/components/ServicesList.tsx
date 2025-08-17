@@ -330,65 +330,78 @@ const servicesData = {
   Fresh: {
     services: [
       { 
-        name: 'Rice Depo', 
+        name: '🍚 Rice Bags', 
         vendor: 'Rice & Pulses',
         location: 'Market',
         phone: '9876543225',
         discounts: [
-          '100 OFF on 25KG Bag, Door Delivery 50 OFF on 25Kg Bag',
-          'Organic produce available'
+          '✅ Sona Masoori, BPT, Jeera Rice, Telangana Rice & More',
+          '✅ 25kg Bag పై ₹100 OFF – Take Away Low Price Guarantee',
+          '✅ Door Delivery అయితే ₹50 OFF',
+          '💯 Quality Guaranteed | Trusted Suppliers'
         ]
       },
       { 
-        name: 'Daily Veggie Market', 
+        name: '🛒 More Supermarket', 
         vendor: 'Vegetables & Fruits',
-        location: 'ప్రతి రోజు వాట్సాప్ ద్వారా వివరాలు తెలియజేస్తాము',
         phone: '9876543226',
         discounts: [
-          '20% on veggies🥕',
-          'Monthly subscription offers'
+          '🧺 కిరాణా, కూరగాయలు, పాలు, బియ్యం, నిత్యావసర వస్తువులపై',
+          '🎉 బిల్ విలువపై 3 to 4% అదనంగా డిస్కౌంట్ - Cash Voucher'
         ]
       },
       { 
-        name: 'Fresh Mutton Shop', 
+        name: '🥛 పాల కనకయ్య', 
+        vendor: 'Milk & Dairy Products',
+        location: '📍 Address: Near గాంధీనగర్, సిరిసిల్ల',
+        phone: '9876543227',
+        discounts: [
+          '🧺 Products: అన్ని పాల ఉత్పత్తులు Milk, Curd, Ghee, Paneer',
+          '🎉 5% డిస్కౌంట్ – Low Price Guarantee & Top Quality'
+        ]
+      },
+      { 
+        name: '🥩 మటన్', 
+        vendor: 'Mutton & Fish',
+        phone: '9876543227',
+        discounts: [
+          '🐐 శుద్ధమైన, తాజా మటన్ అందుబాటులో',
+          '1kg ₹50 తక్కువగా (మార్కెట్ ధరతో పోలిస్తే)',
+          '🚚 ఫ్రీ డోర్ డెలివరీ (అవసరమైతే)',
+          '📍 DiscountMithra ద్వారా బుక్ చేయండి – స్పష్టమైన ధర తేడా చూడండి!'
+        ]
+      },
+      { 
+        name: '🍗 చికెన్', 
         vendor: 'Meat & Poultry',
         location: 'Soon',
         phone: '9876543227',
         discounts: [
-          '₹50 off/kg',
-          'Free delivery on orders above ₹500'
+          '1kg ₹20 తక్కువగా (మార్కెట్ ధరతో పోలిస్తే)',
+          '🐓 తాజా చికెన్ అందుబాటులో',
+          '📍 DiscountMithra ద్వారా బుక్ చేయండి – ధర తేడా మీకే కనిపిస్తుంది!'
         ]
       },
       { 
-        name: 'Fresh Fish Shop', 
-        vendor: 'Seafood',
-        location: 'Soon',
-        phone: '9876543227',
-        discounts: [
-          '₹50 off/kg-Fish🐟',
-          'Free delivery on orders above ₹500'
-        ]
-      },
-      { 
-        name: 'Fresh Chicken Shop', 
-        vendor: 'Meat & Poultry',
-        location: 'Soon',
-        phone: '9876543227',
-        discounts: [
-          '₹50 off/kg',
-          '₹30 off/kg-Party orders',
-          'Free delivery on orders above ₹500'
-        ]
-      },
-      { 
-        name: 'Milk & More', 
-        vendor: 'Dairy Products',
-        location: 'Soon',
+        name: '🥦 కూరగాయలు', 
+        vendor: 'Vegetables & Fruits',
         phone: '9876543227',
         discounts: [
           '5% milk discount🥛',
-          'Free delivery on orders above ₹500',
-          'Organic dairy products'
+          '🧺 రోజూ తాజా కూరగాయలు అందుబాటులో',
+          '📲 రోజువారీ ధరలు & లిస్టు – WhatsApp లో అందుబాటులో',
+          '📍 DiscountMithra ద్వారా బుక్ చేయండి – తేడా స్పష్టంగా కనిపిస్తుంది!'
+        ]
+      },
+      { 
+        name: '🐟 ఫిష్', 
+        vendor: 'Fish & Seafood',
+        phone: '9876543227',
+        discounts: [
+          '🦐 రొయ్యలు, బంగారు తివాచీ, కోడి మినుగు, చేపలు & మరెన్నో',
+          '📍 DiscountMithra ద్వారా బుక్ చేయండి – తక్కువ ధర స్పష్టంగా కనిపిస్తుంది!',
+          '📲 రోజువారీ ధరలు & లిస్టు – WhatsApp లో అందుబాటులో',
+          '📍 DiscountMithra ద్వారా బుక్ చేయండి – తేడా స్పష్టంగా కనిపిస్తుంది!'
         ]
       }
     ]
@@ -435,84 +448,40 @@ const servicesData = {
       }
     ]
   },
-  //   services: [
-  //     { 
-  //       name: 'Online Skill Development', 
-  //       vendor: 'Skill Academy',
-  //       location: 'Online',
-  //       phone: '7799663223',
-  //       discounts: [
-  //         '100+Free Courses with Certigication',
-  //         'Free Trial Classes'
-  //       ]
-  //     },
-  //     { 
-  //       name: 'Sircilla High School', 
-  //       vendor: 'Schooling',
-  //       location: 'Soon',
-  //       phone: '7799663223',
-  //       discounts: [
-  //         '10% fee discount',
-  //         'Free books for first 100 students',
-  //         'Scholarships available'
-  //       ]
-  //     },
-  //     { 
-  //       name: 'Sircilla Inter College', 
-  //       vendor: 'Schooling',
-  //       location: 'Soon',
-  //       phone: '7799663223',
-  //       discounts: [
-  //         '10% fee discount',
-  //         'Free study materials',
-  //         'Career guidance'
-  //       ]
-  //     },
-  //     { 
-  //       name: 'Sircilla Degree College', 
-  //       vendor: 'Schooling',
-  //       location: 'Soon',
-  //       phone: '7799663223',
-  //       discounts: [
-  //         '20% fee discount',
-  //         'Placement assistance',
-  //         'Library access'
-  //       ]
-  //     }
-  //   ]
-  // },
   Travels: {
     services: [
       { 
-        name: 'Sircilla Travels', 
-        vendor: 'Local Travel Agency',
-        location: 'Old Bus Stand',
-        phone: '7799663223',
-        discounts: [
-          '10% off on local tours',
-          'Free pickup and drop'
-        ]
-      },
-      { 
-        name: 'Holiday Plannerz', 
+        name: '🚗 ఆటో / కార్ బుకింగ్', 
         vendor: 'Travel Agency',
-        location: 'Main Road',
         phone: '7799663223',
         discounts: [
-          '15% off on international trips',
-          '15% on trips',
-          'Free travel guide'
+          '📍 లోకల్ & లాంగ్ డిస్టెన్స్ ప్రయాణాలకు',
+          '🚕 Auto, Sedan, SUV అన్ని రకాల వాహనాలు అందుబాటులో',
+          '🕐 టైమ్ కి సేవ | ప్రొఫెషనల్ డ్రైవర్లు | క్లిన్ వెహికల్స్',
+          '💯 Low Price Guarantee – Market కంటే తక్కువ ధర'
         ]
       },
       { 
-        name: 'City Cab Services', 
-        vendor: 'Local Cab Service',
-        location: 'Gandhi Nagar',
+        name: '🌄 Holiday Trip Packages', 
+        vendor: 'Travel Agency',
         phone: '7799663223',
         discounts: [
-          'Round-trip deals',
-          '10% off on first ride',
-          '24/7 service available'
+          '✈️ Local & National Trips – Customized Packages',
+          '🏕️ ఫ్యామిలీ, ఫ్రెండ్స్, గ్రూప్ టూర్లకు ప్రత్యేక డీల్స్',
+          '🏨 Stay + Travel + Food = All-In-One Package',
+          '💰 Special Discount: 5% నుంచి 10% వరకు',
+          '📍 Trusted Travel Partners | Time-to-Time Service'
+        ]
+      },
+      { 
+        name: '🚌✈️🚆 Bus / Train / Flight Tickets', 
+        vendor: 'Ticket Booking',
+        phone: '7799663223',
+        discounts: [
+          '✅ All types of tickets – Local to International',
+          '💸 Online Prices కన్నా తక్కువగా మేమే చూసుకుంటాము',
+          '📍 Trusted Booking Service – No Hidden Charges',
+          '💯 Low Price Guarantee – Budget లో బుకింగ్ ఖాయం!'
         ]
       }
     ]
@@ -520,34 +489,131 @@ const servicesData = {
   Construction: {
     services: [
       { 
-        name: 'BuildPro Materials', 
+        name: '🏡 Mud Bricks (మట్టి ఇటుకలు)', 
         vendor: 'Construction Services',
-        location: 'Main Road',
         phone: '7799663223',
         discounts: [
-          'Free consultation',
-          '10% off on first project'
+          '✔️ Best Quality',
+          '💰 Low Price',
+          '🌿 పర్యావరణానికి అనుకూలమైనవి',
+          'ఇప్పుడే ఆర్డర్ చేయండి – మీ డోర్ దగ్గరికి డెలివరీ!'
         ]
       },
       { 
-        name: 'HomeFix Contractors', 
-        vendor: 'Home Renovation',
-        location: 'Gandhi Nagar',
+        name: '🚜 JCB', 
+        vendor: 'Construction Services',
         phone: '7799663223',
         discounts: [
-          '15% off on home renovations',
-          'Free design consultation'
+          'ఇప్పుడే JCB బుకింగ్ చేసుకోండి',
+          '💰 సరసమైన ధర – ⏱️ టైం కి సర్వీస్',
+          'మీ పని మరింత వేగంగా, నమ్మకంగా!'
         ]
       },
       { 
-        name: 'Tiles World', 
+        name: '🚿 బోర్‌వెల్(Borewell)', 
         vendor: 'Tiles & Flooring',
         location: 'Gandhi Nagar',
         phone: '7799663223',
         discounts: [
-          '15% tiles discounts',
-          'Free installation',
-          'Quality materials'
+          'ఇప్పుడే బుక్ చేసుకుంటే 💸',
+          '₹2000 నుండి ₹5000 వరకు డిస్కౌంట్',
+          '✅ అనుభవజ్ఞులైన టీమ్',
+          '✅ వేగంగా & నమ్మకంగా పని'
+        ]
+      },
+            { 
+        name: 'గ్రానైట్ రాళ్లు & టైల్స్', 
+        vendor: 'Tiles & Flooring',
+        phone: '7799663223',
+        discounts: [
+          '✅ Best Quality',
+          '💰 Low Price',
+          '📦 విభిన్న రంగులు, డిజైన్లు అందుబాటులో ఉన్నాయి',
+          '📞 ఇప్పుడే ఆర్డర్ చేయండి – డోర్ డెలివరీ అందుబాటులో ఉంది'
+        ]
+      },
+            { 
+        name: '🛠️ రెడీ మిక్స్ కాంక్రీట్ (RMC)', 
+        vendor: 'Cement Services',
+        phone: '7799663223',
+        discounts: [
+          '✅ Best Quality Cement Mix',
+          '💰 Low Price – Market కంటే తక్కువ ధర',
+          '🏗️ గృహనిర్మాణం, కమర్షియల్ ప్రాజెక్ట్స్ కు పర్ఫెక్ట్',
+          '📞 ఇప్పుడు ఆర్డర్ చేయండి – Time కి డెలివరీ హామీ!'
+        ]
+      },
+            { 
+        name: '🔧 నిర్మాణ ఉపకరణాలు', 
+        vendor: 'Construction Tools',
+        phone: '7799663223',
+        discounts: [
+          '🛠️ అన్ని రకాల Construction Tools',
+          '🎉 ఇప్పుడే కొనుగోలు లేదా అద్దెకు తీసుకుంటే 10% తగ్గింపు!',
+          '🏗️ ఇంటి నిర్మాణం, మరమ్మత్తుల కోసం పర్ఫెక్ట్ ఎంపిక'
+        ]
+      },
+            { 
+        name: '🎨 పెయింట్స్', 
+        vendor: 'Painting Services',
+        phone: '7799663223',
+        discounts: [
+          '🖌️ All Brands Available – Asian, Nerolac, Dulux & more',
+          '💯 Best Quality Paints',
+          '✅ అనుభవజ్ఞులైన టీమ్',
+          '🏠 ఇంటి / షాప్ / ఆఫీస్ పెయింటింగ్ కి సరైన ఎంపిక!'
+        ]
+      },
+            { 
+        name: 'సిమెంట్', 
+        vendor: 'Cement Services',
+        phone: '7799663223',
+        discounts: [
+          'అన్ని బ్రాండ్లు అందుబాటులో ఉన్నాయి',
+          'మేము మీకు అవసరమైన ప్రతి సిమెంట్ బ్రాండ్ను',
+          '💰 ధరలు సరసమే కాదు, నాణ్యత కూడా హామీ!'
+        ]
+      },
+            { 
+        name: '🚰 నీటి పైపులు / Pipes', 
+        vendor: 'Pipes',
+        phone: '7799663223',
+        discounts: [
+          '🛠️ CPVC, UPVC, PVC, SWR Pipes & Fittings',
+          '🏠 ఇంటి నిర్మాణం నుండి కమర్షియల్ పనుల వరకు',
+          '📦 Finolex, Ashirvad, Prince, Supreme & More'
+        ]
+      },
+            { 
+        name: '🏗️ బిల్డింగ్ కాంట్రాక్టర్ సేవలు', 
+        vendor: 'Building Contractor',
+        phone: '7799663223',
+        discounts: [
+          '👷‍♂️ అనుభవజ్ఞులైన బిల్డర్ టీమ్',
+          '₹💰 తక్కువ బడ్జెట్ లో',
+          '🏠 అందంగా, నాణ్యంగా నిర్మాణం',
+          '📐 ప్లానింగ్ నుండి పూర్తిచేయడం వరకు One-Stop Solution!'
+        ]
+      },
+            { 
+        name: '🔥 వెల్డింగ్ సేవలు', 
+        vendor: 'Welding Services',
+        phone: '7799663223',
+        discounts: [
+          '🔩 ఐరన్ వెల్డింగ్ | గ్యాస్ వెల్డింగ్',
+          '🛠️ ఇంటి, షెడ్లు, గేట్‌లు, గ్రిల్స్, ఇతర ఐరన్ వర్క్స్ కి',
+          '💰 ప్రతి సేవపై 15% తగ్గింపు'
+        ]
+      },
+            { 
+        name: '🏡 ల్యాండ్ కొనుగోలు లేదా అమ్మకం', 
+        vendor: 'Land Services',
+        phone: '7799663223',
+        discounts: [
+          'మీ భూమికి ఉత్తమ ధర వచ్చేలా మేము చూస్తాము',
+          '✅ Buy / Sell Assistance',
+          '💯 విశ్వసనీయ సేవ – వేగంగా, నిబంధనలతో',
+          '📞 ఇప్పుడే సంప్రదించండి – Free Consultation అందుబాటులో ఉంది!'
         ]
       }
     ]
@@ -555,31 +621,18 @@ const servicesData = {
   Bar: {
     services: [
       { 
-        name: 'Sri Vinayaka Bar& Restaurant', 
+        name: '🍻 Bar & రెస్టారెంట్', 
         vendor: 'Bar & Restaurant',
-        location: 'Gopal Nagar,Sircilla',
         phone: '7799663223',
         discounts: [
-          '5% discount on Bar',
-          '10% on food',
-          'Happy hour specials'
+          '❄️ AC / Non-AC విభాగాలు',
+          '🎉 5% నుండి 10% వరకు అదనపు డిస్కౌంట్',
+          '🍽️ రుచికరమైన వంటకాలు & ఉత్తమ బ్రాండ్స్'
         ]
       }
     ]
   },
-  //   services: [
-  //     { 
-  //       name: 'Perfect Stitch - Men', 
-  //       vendor: 'Tailoring Services',
-  //       location: 'Shanthinagar',
-  //       phone: '7799663223',
-  //       discounts: [
-  //         '20% off on first order',
-  //         'Free fitting session'
-  //       ]
-  //     }
-  //   ]
-  // },
+
   Events: {
     services: [
       { 
@@ -655,31 +708,7 @@ const servicesData = {
         ]
       }
     ]
-  },
-  GiftArticles: {
-    services: [
-      { 
-        name: 'Gift Gallery', 
-        vendor: 'Gift Shop',
-        location: 'Main Street',
-        phone: '7799663223',
-        discounts: [
-          '10% off on first purchase',
-          'Free gift wrapping'
-        ]
-      },
-      { 
-        name: 'Artisan Gifts', 
-        vendor: 'Handmade Gifts',
-        location: 'City Center',
-        phone: '7799663223',
-        discounts: [
-          '15% off on handmade items',
-          'Custom gift options available'
-        ]
-      }
-    ]
-  }   
+  }
 
 };
 
