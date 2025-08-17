@@ -13,11 +13,11 @@ const categories = [
   { name: 'Construction', displayName: 'Construction', icon: '🏗️', color: 'from-orange-500 to-yellow-500' },
   { name: 'Events', displayName: 'Events', icon: '🎉', color: 'from-indigo-500 to-purple-500' },
   { name: 'Food', displayName: 'Food', icon: '🍱', color: 'from-orange-500 to-red-500' },
-  { name: 'Fresh & grocery', displayName: 'Fresh', icon: '🥦', color: 'from-green-500 to-emerald-500' },
+  { name: 'Fresh', displayName: 'Fresh', icon: '🥦', color: 'from-green-500 to-emerald-500' },
   { name: 'Laundry', displayName: 'Laundry', icon: '👕', color: 'from-blue-500 to-cyan-500' },
   { name: 'Salon', displayName: 'Salon', icon: '💇', color: 'from-pink-500 to-rose-500' },
   { name: 'Shopping', displayName: 'Shopping', icon: '🛍️', color: 'from-purple-500 to-pink-500' },
-  { name: 'Tours/Travels', displayName: 'Travels', icon: '✈️', color: 'from-teal-500 to-cyan-500' }
+  { name: 'Travels', displayName: 'Travels', icon: '✈️', color: 'from-teal-500 to-cyan-500' }
 ];
 
 const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
